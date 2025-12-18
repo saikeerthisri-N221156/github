@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TASK 5</title>
+</head>
+
+<body>
+<h1>Style HTML Tags with JavaScript</h1>
+
+<p id="box" style="padding:10px";
+background:lightyellow;>styles are changed,toggled when buttons are clicked</p>
+
+<button onclick="applyStyle()">Apply style</button>
+<button onclick="toggleStyle()">Apply toggle</button>
+<button onclick="inlineStyle()">inline styles</button>
+
+<script>
+
+function applyStyle(){
+    let b=document.getElementById("box");
+    b.style.color="white";
+    b.style.background="purple";
+    b.style.fontSize="22px";
+
+}
+
+let toggle = true;
+function toggleStyle(){
+
+    let b=document.getElementById("box");
+
+    if (toggle){
+        b.style.background="gray";
+        b.style.color="black";     
+    }
+    else {
+        b.style.background="teal";
+        b.style.color="white"; 
+    }
+    toggle = !toggle
+}
+
+function inlineStyle(){
+    let text=document.getElementById("box");
+    text.style.border="2px solid red";
+    text.style.padding="10px";
+    text.style.borderRadius="8px";
+
+}
+</script>
+</body>
+</html>

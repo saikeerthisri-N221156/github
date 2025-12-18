@@ -1,0 +1,566 @@
+<!DOCTYPE html><!--version of html tags being used-->
+
+<html lang="en" dir="ltr">
+<head><!--logical section of the webpage-->
+<title>Web Technologies video-3</title>
+
+
+<!--=======link tag=======-->
+<link rel="icon" type="image/png" href="/home/user/Downloads/rgukt.png">
+<!--link tag is used to create a logo and to add external resources to the webpage
+external resources <link rel="stylesheet" type="text/css href="image.css>  -->
+<!--=======link tag=======-->
+
+
+<!--==================META TAGS SECTION STARTS=====================-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width" initial-scale="1.0" minimum-scale="1.0" maximum-scale="1.0" user-scalable="1.0">
+<meta name="author" content="M Sai Keerthi Sri">
+<meta name="keywords" content="webpage,html,css,javascript,bootstrap,html introduction">
+<meta name="description" content="This is a trial website created by me while learning web development" >
+<!--<meta http-eqiv="refresh" content="5">-- 5 SECONDS -->
+<meta name="revised" content="21st june 2024"><!--webpage content updation date-->
+<!-- by using open graph (og) meta tags,Integration between the website and social sites can be achieved-->
+<meta property="og:url" content="www.rguktn.ac.in">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RGUKT Nuzvid">
+<meta propert="og:description" content="........blah blah">
+<meta property="twitter:card" content="summary">
+
+<!--==================META TAGS SECTION ENDS=====================-->
+
+
+
+<!--===========STYLE TAG to add style to the website=============-->
+  <style type="text/css">
+  </style>
+  
+ 
+  <script type="text/javascript">
+  <!--for writing scripts-->
+  </script>
+ 
+<!--===========STYLE TAG============-->
+
+</head>
+
+<a href="#bottom">Go To Bottom</a>
+<br>
+<a href="#file" title="Takes you to the file paragraph">GO TO FILE paragraph</a>
+
+<body bgcolor="pink" link="blue" alink="red" vlink="purple"><!--physical section of the webpage-->
+<p>Web Technologies from the web development course by jk sir.</p>
+<a href="#">link</a>
+<!--=====HEADING TAGS=====-->
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+
+<h6>Heading 6</h6>
+<!--=====HEADING TAGS=====-->
+<hr>
+<!--=================FORMATTING TAGS=================-->
+<h1>Formatting Tags</h1>
+<b>bold</b>
+<br>
+<strong>strong</strong>
+<br>
+<i>italic</i>
+<br>
+<em>emphasizing tag</em>
+<br>
+<mark>mark</mark>
+<br>
+<u>underline</u>
+<br>
+<tt>teletype</tt>
+<br>
+<strike>strike</strike>
+<br>
+<sup>superscript</sup>
+<br>
+<sub>subscript</sub>
+<br>
+<del>delete</del>
+<br>
+<ins>insert(ins tag)</ins>
+<br>
+<big>big</big>
+<br>
+<small>small</small>
+<br>
+<br>
+<br>
+<!--=================FORMATTING TAGS=================-->
+
+<hr>
+<br>
+
+<p>
+CONTENT<br>
+LECTURE-1: Introduction to Data<br>
+LECTURE-2: DBMS<br>
+LECTURE-3: 3 level Architecture of DBMS<br>
+LECTURE-4: Elements of DBMS<br>
+LECTURE-5: ER-MODEL<br>
+LECTURE-6: ER-DIAGRAM:<br>
+LECTURE-7: Advanced ER-Diagram:<br>
+LECTURE-8: Conversion of ER-Diagram to Relational Database<br>
+LECTURE-9: Record Based Logical Model<br>
+LECTURE-10: RELATIONAL MODEL<br>
+LECTURE-11: CONSTRAINTS<br>
+LECTURE-12: FILE ORGANISATION<br>
+LECTURE-13: INDEX<br>
+LECTURE-14: Clustering Index<br>
+LECTURE-15: B+ Tree Index<br>
+LECTURE-16: Hash File Organization<br>
+LECTURE-17: Query Processing<br>
+LECTURE-18: Evaluation of Expressions<br>
+LECTURE-19 Relational Algebra<br>
+LECTURE-20 Additional Operations<br>
+LECTURE-21 Tuple Relational Calculus<br>
+LECTURE-22 Structured Query Language (SQL)<br>
+LECTURE-23 Nested Sub queries<br>
+LECTURE-24 Integrity Constraints<br>
+LECTURE-25 Query by Example (QBE)<br>
+LECTURE-26 Relational Database Design<br>
+LECTURE-27 Closure of a set of Functional Dependencies<br>
+LECTURE-28 Loss less Decomposition<br>
+LECTURE-29 Normalization<br>
+LECTURE-30 Boyce-Code Normal Form (BCNF)<br>
+LECTURE-31 Query Processing<br>
+LECTURE-32 Query Optimization<br>
+LECTURE-33 Transaction<br>
+LECTURE-34 Problems due to locking<br>
+LECTURE-35 Multiversion Technique Based on Timestamp Ordering<br>
+LECTURE-36 Serializability<br>
+LECTURE-37 Object Oriented Databases<br>
+LECTURE-38 Parallel Database<br>
+</p>
+<p align="justify">
+Introduction:
+In computerized information system data are the basic resource of the organization. So, proper
+organization and management for data is required for organization to run smoothly. Database
+management system deals the knowledge of how data stored and managed on a computerized
+information system.<br> In any organization, it requires accurate and reliable data for better decision
+making, ensuring privacy of data and controlling data efficiently.
+The examples include deposit and/or withdrawal from a bank, hotel, airline or railway reservation,
+purchase items from supermarkets in all cases, a database is accessed.
+<br>
+What is data?
+Data are the known facts or figures that have implicit meaning. It can also be defined as it is the
+representation of facts, concepts or instructions in a formal manner, which is suitable for
+understanding and processing. Data can be represented in alphabets (A-Z, a-z), digits (0-9) and
+using special characters (+,-.#,$, etc)
+e.g: 25, “ajit” etc.<br>
+Information:
+Information is the processed data on which decisions and actions are based. Information can be
+defined as the organized and classified data to provide meaningful values.
+Eg: “The age of Ravi is 25”
+<br><br><br><br>
+<div id="file"></div>
+<b>
+File:
+File is a collection of related data stored in secondary memory.
+File Oriented Approach:
+The traditional file oriented approach to information processing each application has a separate
+master file and its own set of personal file. In file oriented approach the program dependent on the
+files and files dependent upon the programs.
+Disadvantages of file oriented approach:<br>
+1) Data redundancy and inconsistency:
+The same information may be written in several files. This redundancy leads to higher
+storage and access cost. It may lead data inconsistency that is the various copies of the same
+data may present at multiple places for example a changed customer address may be
+reflected in single file but not else where in the system.<br>
+2) Difficulty in accessing data :
+The conventional file processing system do not allow data to be retrieved in a convenient
+and efficient manner according to user choice.<br>
+3) Data isolation :
+Because data are scattered in various files and files may be in different formats with new
+application programs to retrieve the appropriate data is difficult.<br>
+4)
+Integrity Problems:Developers enforce data validation in the system by adding appropriate code in the various
+application program. How ever when new constraints are added, it is difficult to change the
+programs to enforce them.<br>
+5) Atomicity:
+It is difficult to ensure atomicity in a file processing system when transaction failure occurs
+due to power failure, networking problems etc. (atomicity: either all operations of the
+transaction are reflected properly in the database or non are)<br>
+6) Concurrent access:
+In the file processing system it is not possible to access the same file for transaction at same
+the time.<br>
+7) Security problems:
+There is no security provided in file processing system to secure the data from unauthoriz-
+ed user access<br>
+
+<hr>
+<h1>IMAGES</h1>
+
+<!--Image Mapping is to provide multiple links in a single image.The regions of the image containing links are called HOT REGIONS.Attributes are area (to define hot regions), shape,coord-->
+
+<img src="/home/user/Pictures/hanuma.jpg"  width="300" height="300" title="Lord Hanuman" border="8"  align="center" alt="Hanuman Image"> 
+
+<br>
+<br>
+<br>
+<br>
+<img src="/home/user/Pictures/Wallpapers/rgukt.png" width="400" height="400" usemap="#sai" border="8" style="border-color:blue;">
+<map name="sai">
+<area shape="circle" coords="300,403,270" href="www.google.com">
+<area shape="circle" coords="100,150,50" href="www.rguktn.ac.in">
+<area shape="rect" coords="60,68,70,76" href="www.rguktn.ac.in">
+</map>
+<hr>
+
+<h1>Marquee tag </h1>
+<h3>to add scrolling to the information in either left or right direction</h3>
+<!--default direction is from right to left -->
+<marquee onmouseover="this.stop();" onmouseout="this.start();" bgcolor="yellow" loop="6" height="15" direction="right" scrollamount="10">
+<a href="www.google.com" target="_blank">
+Welcome to my webpage </a>
+</marquee>
+
+<br>
+<br>
+<br>
+<!--=============--TABLES--===============-->
+  <table border="5"  cellspacing="10" cellpadding="5">
+  <thead>
+  
+  <tbody>
+  <tr>
+  <td>HELLO</td>
+ 
+  </tr>
+  </tbody>
+  <tr>
+  <td bgcolor="yellow">HELLO</td>
+  <td>HELLO</td>
+  </tr>
+  <tr>
+  <td>HELLO</td>
+  <td>HELLO</td>
+  </tr>
+  <tfoot>
+  </tfoot align="center" bgcolor="blue">
+  <tr>
+  <td colspan="2" align="center" bgcolor="green">HELLO</td>.
+  </tr>
+  </table>
+<!--=============--TABLES--===============-->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!--=============--lists--===============-->
+<h1>LISTS</h1>
+<br>
+<h3>ordered lists</h3>
+<br>
+
+<ol type="1" start="5">
+<li>Arabic number type is Default</li>
+<li>hai</li>
+<li>hii</li>
+<li>hlo</li>
+<li>hey</li>
+</ol>
+
+
+<br>
+<br>
+<h3>unordered lists</h3>
+<br>
+
+<ul type="circle">
+<li>square disc circle</li>
+<li>disc is default</li>
+<li>hii</li>
+<li>hlo</li>
+<li>hey</li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+
+<h3>definition list</h3>
+<br>
+
+<dl>
+<dt>CSE</dt>
+<dd>computer science engineering</dd>
+<dt>ECE</dt>
+<dd>electronics and communincation engineering</dd>
+<dt>EEE</dt>
+<dd>electrical and electronical engineering</dd>
+
+<abbr title="Computer science engineering">CSE</abbr>
+</dl>
+<!--=============--lists--===============-->
+
+<h1>Special characters</h1>
+<!--Two types of Formats 1.NAMED ENTITY FORMAT 2.NUMBERED ENTITY FORMAT-->
+
+&rarr;
+<br>
+ copy: &#169; &copy;
+ <br>
+ TM: &trade; &#8482;
+ <br>
+ spaces:&nbsp;
+ <br>
+ heart: &hearts; &#9829;
+ <br>
+ cake: &#x1f382;
+ <br>
+ smile: &#128525;  &#128151;
+ 
+
+<!--============color coding=================-->
+ <!-- 1.predefined colors: pink,blue,purple,green.
+  
+  2. Hexadecimal color system: #rrggbb (rgb)
+ 
+  3.rgb format(function)
+    rgb(255,255,255)
+  
+  4.hsl(hue,saturartion,lightness)
+  
+    hue-rounded circle in degrees
+    0-red
+    120-green
+    240-blue
+    
+    saturation- to define shading in percentage (TRANSPARENCY)
+    0%-grayscale
+    100%-full color
+    
+    lightness - in percentage
+     0%-black
+     100%-white
+     
+  5.rgba(255,255,255,0.0-1.0)  
+    a-alpha channel-opacity
+   can also be decribed in percentage
+   
+  6.hsla(same as rgba) 
+  -->
+  
+  <h1>Color coding</h1>
+  <h2 style="background-color:blue;">pre defined format</h2>
+  <h2 style="background-color:#0000FF;">hexadecimal</h2>
+  <h2 style="background-color:rgb(0,0,255);">rgb</h2>
+  <h2 style="background-color:hsl(240,100%,50%);">hsl</h2>
+  <h2 style="background-color:rgba(0,0,255,1.0);">rgba</h2>
+  <h2 style="background-color:hsla(240,100%,50%,1.0);">hsla</h2>
+  
+  
+<!--============color coding ends=================-->
+<br>
+
+<!--============FORMS--===============-- max no of the characters can be entered in ___GET(bookmark)___2048 and in ___POST_(no bookmark)__ unlimited-->
+    <br>
+    <br>
+    <br>
+<form action="wt3.html" method="post" target="_blank">
+    <label for="name:">NAME:</label>
+    <input type="text" name="name" id="name"  maxlength="50" size="15" required  title="enter your name" placeholder="username">
+    <br>
+    <br>
+    
+    <label for="email:">Email:</label>
+    <input type="text" name="email_id" id="email" value="email">
+    <br>
+    <br>
+    
+   
+    <label for="age">   AGE:  </label>
+    <input type="number" name="age" id="age" >
+    <br>
+    <br>
+    <br>
+    
+    <h3>radio button</h3>
+    <input type="radio" name="gender" id="male">
+    <label for="male">MALE</label>   
+    <br>
+    <br>
+    <input type="radio" name="gender" id="female">
+    <label for="female">FEMALE</label>
+   
+    <br>
+    <br>
+    
+    <h3>checkbox</h3>
+    <input type="checkbox" name="sports" id="cricket">
+    <label for="Cricket">Cricket</label>   
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="soccer">
+    <label for="Soccer">Soccer</label>
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="hockey">
+    <label for="Hockey">Hockey</label>
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="Golf">
+    <label for="Golf">Golf</label>
+    
+    <br>
+    <br>
+    <br>
+    
+    <h3>select box(drop down list)</h3>
+    
+    <label for="city">City:</label>
+      
+    <select name="city" id="city"><!--multiple attribute-->
+    <option value="Select">Select</option>
+    <option value="sydney">Sydney</option>
+    <option value="Florida">Florida</option>
+    <option value="Miami">Miami</option>
+    <option value="Melbourne">Melbourne</option>
+    <option value="Amsterdam">Amsterdam</option>
+   
+   <optgroup>
+    <option value="Select">Select</option>
+    <option value="sydney">Sydney</option>
+    <option value="Florida">Florida</option>
+    <option value="Select">Select</option>
+    <option value="sydney">Sydney</option>
+    <option value="Florida">Florida</option>
+   </optgroup>
+    </select> 
+    
+    <br>
+    <br>
+    <br>
+    
+    <h3>TextArea</h3>
+    
+    <label for="address">Address:</label>
+    <textarea rows="3" cols="20" name="address" id="address"></textarea>
+    <br>
+    <br>
+    <br>
+    
+    <h3>File select box</h3>
+    <label for="file-select">Upload-File:</label>
+    
+    <input multiple   accept="image/*" type="file" name="upload" id="file-select"><!-- image/*  video/*-->
+    <br>
+    <br>
+    <br>
+    
+    <h3>Button Controls</h3>
+    <input type="submit" value="submit">
+    <hr>
+    <input type="reset" value="reset">
+    <hr>
+    <input type="button" value="button">
+    <hr>
+    <input type="image" value="image" >
+    <hr>
+    <br>
+    <br>
+    
+    <h3>Grouping form controls</h3>
+    
+    <h3>TextArea</h3>
+    <fieldset>
+    <legend align="left">Grouping using textarea</legend>
+    <label for="address">Address:</label>
+    <textarea rows="3" cols="20" name="address" id="address"></textarea>
+    <br>
+    <br>
+    <br>
+    
+    <h3>File select box</h3>
+    <label for="file-select">Upload-File:</label>
+    
+    <input type="file" name="upload" id="file-select">
+    </fieldset>
+     <br>
+    <br>
+    <br>
+    Date:
+    <input type="date" name="date" id="date">
+    <br>
+    <br>
+    <br>v
+    <label for="range">range:</label>
+    <input type ="range" name="r" id="range">
+    <hr>
+    <label for="color">color:</label>
+    <input type ="color" name="c" id="color">
+    <hr>
+    <label for="email">email</label>
+    <input type ="email" name="mail" id="email">
+    <hr>
+    <label for="time">time</label>
+    <input type ="time" name="t" id="time">
+    <hr>
+    <label for="hid">hidden</label>
+    <input type ="hidden" name="h" id="hid" value="hidden">
+    <hr>
+    <!--Attributes of input tag are (read only) and (disabled) --> 
+</form>
+
+<!--============FORMS--===============-->
+<hr>
+<h1 id="greet">Welcome</h1>
+<button onclick="getName()">Name</button>
+
+<form onsubmit="validateForm(event)">
+<input id="username" type="text" placeholder="Enter Username">
+<input id="email" type="email" placeholder="Enter Email">
+
+<button type="submit">Submit</button>
+</form>
+<br>
+
+<button onclick="window.print()">print</button>
+
+<script>
+//Asking name and greeting
+function getName(){
+    let name=prompt("Your name please?");
+    document.getElementById("greet").textContent="Welcome,"+ name +"!";
+}
+
+function validateForm(e){
+    e.preventDefault();
+
+    let user=document.getElementById("username").value;
+    let email=document.getElementById("email").value;
+    if (user === ""){
+            alert("username cannot be empty!");
+            return;
+    } 
+    if(email.includes("@")){
+        alert("email is not valid");
+        return;
+    }
+    alert("form submitted successfully!");
+
+
+}
+</script>
+</b>
+<div id="bottom"></div>
+</p>
+<br>
+<a href="#top">Go To Top</a>
+
+
+
+</body>
+</html>

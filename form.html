@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FORM</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<form action="wt3.html" method="post" target="_blank">
+    <label for="name:">NAME:</label>
+    <input type="text" name="name" id="name"  maxlength="50" size="15" required  title="enter your name" placeholder="username">
+    <br>
+    <br>
+    
+    <label for="email:">Email:</label>
+    <input type="text" name="email_id" id="email" value="email">
+    <br>
+    <br>
+    
+   
+    <label for="age">   AGE:  </label>
+    <input type="number" name="age" id="age" >
+    <br>
+    <br>
+    <br>
+    
+    <h3>radio button</h3>
+    <input type="radio" name="gender" id="male">
+    <label for="male">MALE</label>   
+    <br>
+    <br>
+    <input type="radio" name="gender" id="female">
+    <label for="female">FEMALE</label>
+   
+    <br>
+    <br>
+    
+    <h3>checkbox</h3>
+    <input type="checkbox" name="sports" id="cricket">
+    <label for="Cricket">Cricket</label>   
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="soccer">
+    <label for="Soccer">Soccer</label>
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="hockey">
+    <label for="Hockey">Hockey</label>
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="Golf">
+    <label for="Golf">Golf</label>
+    
+    <br>
+    <br>
+    <br>
+    
+    <h3>select box(drop down list)</h3>
+    
+    <label for="city">City:</label>
+      
+    <select name="city" id="city"><!--multiple attribute-->
+    <option value="Select">Select</option>
+    <option value="sydney">Sydney</option>
+    <option value="Florida">Florida</option>
+    <option value="Miami">Miami</option>
+    <option value="Melbourne">Melbourne</option>
+    <option value="Amsterdam">Amsterdam</option>
+   
+   <optgroup>
+    <option value="Select">Select</option>
+    <option value="sydney">Sydney</option>
+    <option value="Florida">Florida</option>
+     <option value="Select">Select</option>
+    <option value="sydney">Sydney</option>
+    <option value="Florida">Florida</option>
+   </optgroup>
+    </select> 
+    
+    <br>
+    <br>
+    <br>
+    
+    <h3>TextArea</h3>
+    
+    <label for="address">Address:</label>
+    <textarea rows="3" cols="20" name="address" id="address"></textarea>
+    <br>
+    <br>
+    <br>
+    
+    <h3>File select box</h3>
+    <label for="file-select">Upload-File:</label>
+    
+    <input multiple accept="image/*" type="file" name="upload" id="file-select"><!-- image/*  video/*-->
+    <br>
+    <br>
+    <br>
+    
+    <h3>Button Controls</h3>
+    <input type="submit" value="submit">
+    <hr>
+    <input type="reset" value="reset">
+    <hr>
+    <input type="button" value="button">
+    <hr>
+    <input type="image" value="image" >
+    <hr>
+    <br>
+    <br>
+    
+    <h3>Grouping form controls</h3>
+    
+    <h3>TextArea</h3>
+    <fieldset>
+    <legend align="left">Grouping using textarea</legend>
+    <label for="address">Address:</label>
+    <textarea rows="3" cols="20" name="address" id="address"></textarea>
+    <br>
+    <br>
+    <br>
+    
+    <h3>File select box</h3>
+    <label for="file-select">Upload-File:</label>
+    
+    <input type="file" name="upload" id="file-select">
+    </fieldset>
+     <br>
+    <br>
+    <br>
+    Date:
+    <input type="date" name="date" id="date">
+    <br>
+    <br>
+    <br>
+    <label for="range">range:</label>
+    <input type ="range" name="r" id="range">
+    <hr>
+    <label for="color">color:</label>
+    <input type ="color" name="c" id="color">
+    <hr>
+    <label for="email">email</label>
+    <input type ="email" name="mail" id="email">
+    <hr>
+    <label for="time">time</label>
+    <input type ="time" name="t" id="time">
+    <hr>
+    <label for="hid">hidden</label>
+    <input type ="hidden" name="h" id="hid" value="hidden">
+    <hr>
+    <!--Attributes of input tag are (read only) and (disabled) --> 
+</form>
+</body>
+</html>
+

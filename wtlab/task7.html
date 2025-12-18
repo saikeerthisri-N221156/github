@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task 7</title>
+</head>
+<body>
+<h1 id="greet">Welcome</h1>
+<button onclick="getName()">Name</button>
+
+<form onsubmit="validateForm(event)">
+<input id="username" type="text" placeholder="Enter Username">
+<input id="email" type="email" placeholder="Enter Email">
+
+<button type="submit">Submit</button>
+</form>
+<br>
+
+<button onclick="window.print()">print</button>
+
+<script>
+//Asking name and greeting
+function getName(){
+    let name=prompt("Your name please?");
+    document.getElementById("greet").textContent="Welcome,"+ name +"!";
+}
+
+function validateForm(e){
+    e.preventDefault();
+
+    let user=document.getElementById("username").value;
+    let email=document.getElementById("email").value;
+    if (user === ""){
+            alert("username cannot be empty!");
+            return;
+    } 
+    if(!email.includes("@")){
+        alert("email is not valid");
+        return;
+    }
+    alert("form submitted successfully!");
+
+
+}
+</script>
+</body>
+</html>

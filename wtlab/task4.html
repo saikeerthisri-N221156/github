@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>task 4</title>
+
+<body>
+    <h1 id="heading">This is the original text </h1>
+
+<div id="area"></div>
+
+    <input type="text" id="inputText" placeholder="Enter new heading text">
+
+    <button onclick="changeHeading()">Change Heading</button>
+    <button onclick="addContent()">Add Content</button>
+    <button onclick="removeContent()">Remove last added content</button>
+
+    <script>
+        function changeHeading() {
+           let h = document.getElementById("heading");
+           let newText = document.getElementById("inputText").value;
+              h.innerText = newText;
+ 
+        }
+
+        function addContent() {
+            let p=document.createElement("p");
+            p.innerText = "This is the new paragraph added as content";
+
+            document.getElementById("area").appendChild(p);
+        }
+
+        function removeContent(){
+            let area=document.getElementById("area");
+            if (area.lastChild)
+            area.removeChild(area.lastChild);
+
+        }
+    </script>    
+</body>
+</head>
+</html>

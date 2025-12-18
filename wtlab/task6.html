@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>task 6</title>
+</head>
+
+<body>
+<h1>events</h1>
+
+<button onclick="alertmsg()">click me</button>
+
+<p id="hoverBox"
+onmouseover="hoverOn()"
+onmouseout="hoverOff()"
+style="padding:10px; width:200px; background:pink">Hover the mouse over here</p>
+
+<form onsubmit="formSubmit(event)">
+    <input type="text" required>
+    <button type="submit">Submit</button>
+</form>
+<script>
+//BUTTON ALERT
+function alertmsg(){
+    alert("Button clicked!");
+
+}
+function hoverOn(){
+    document.getElementById("hoverBox").style.background="orange";
+}
+function hoverOff(){
+    document.getElementById("hoverBox").style.background="lightgray";
+}
+function formSubmit(event){
+    event.preventDefault();
+    console.log("form submitted!!");
+}
+</script>
+</body>
+</html>
