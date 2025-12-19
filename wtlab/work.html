@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Media & Form</title>
+  <link rel="stylesheet" href="sheet.css">
+</head>
+<body>
+
+  <h1>HTML Audio, Video, Iframe & Form</h1>
+
+  <!-- AUDIO -->
+  <section class="box">
+    <h2>Audio</h2>
+    <audio controls>
+      <source src="/home/user/github/wtlab/Alex warren - Ordinary.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="box">
+    <h2>Video</h2>
+    <video controls width="400">
+      <source src="/home/user/github/wtlab/855289-hd_1920_1080_25fps.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  </section>
+
+  <!-- IFRAME -->
+  <section class="box">
+    <h2>Iframe</h2>
+    <iframe src="/home/user/github/wtlab/burger.jpeg" frameborder="1"  width="300" height="400" name="m"></iframe>
+    <iframe src="task6.html" width="300" height="400" name="n" ></iframe>
+    
+    <iframe src="/home/user/github/wtlab/pizza.jpeg" width="300" height="400" name="r"></iframe>
+  </section>
+
+  <!-- FORM -->
+  <section class="box">
+    <h2>Contact Form</h2>
+    <form>
+      <label for="name:">NAME:</label>
+    <input type="text" name="name" id="name"  maxlength="50" size="15" required  title="enter your name" placeholder="username">
+    <br>
+    <br>
+    
+    <label for="email:">Email:</label>
+    <input type="text" name="email_id" id="email" value="email">
+    <br>
+    <br>
+    
+   
+    <label for="age">   AGE:  </label>
+    <input type="number" name="age" id="age" >
+    <br>
+    <br>
+    <br>
+    
+    <h3>radio button</h3>
+    <p><i>choose your gender</p>
+    <input type="radio" name="gender" id="male">
+    <label for="male">MALE</label>   
+    <br>
+    <br>
+    <input type="radio" name="gender" id="female">
+    <label for="female">FEMALE</label>
+   
+    <br>
+    <br>
+    
+    <h3>checkbox</h3>
+    <p><i>what are your fav sports?</i></p>
+    <input type="checkbox" name="sports" id="cricket">
+    <label for="Cricket">Cricket</label>   
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="soccer">
+    <label for="Soccer">Soccer</label>
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="hockey">
+    <label for="Hockey">Hockey</label>
+    <br>
+    <br>
+    <input type="checkbox" name="sports" id="Golf">
+    <label for="Golf">Golf</label>
+    </form>
+  </section>
+
+</body>
+</html>
