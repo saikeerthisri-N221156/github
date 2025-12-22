@@ -38,10 +38,10 @@
 
   <!-- FORM -->
   <section class="box">
-    <h2>Contact Form</h2>
-    <form>
-      <label for="name:">NAME:</label>
-    <input type="text" name="name" id="name"  maxlength="50" size="15" required  title="enter your name" placeholder="username">
+    <h2>Application form for sports selection </h2>
+    <form action="wt3.html" method="post" target="_blank">
+    <label for="name:">NAME:</label>
+    <input type="text" name="name" id="name"  maxlength="50" size="15" required  title="enter your name" placeholder="First Name">
     <br>
     <br>
     
@@ -58,7 +58,6 @@
     <br>
     
     <h3>radio button</h3>
-    <p><i>choose your gender</p>
     <input type="radio" name="gender" id="male">
     <label for="male">MALE</label>   
     <br>
@@ -70,7 +69,6 @@
     <br>
     
     <h3>checkbox</h3>
-    <p><i>what are your fav sports?</i></p>
     <input type="checkbox" name="sports" id="cricket">
     <label for="Cricket">Cricket</label>   
     <br>
@@ -85,8 +83,26 @@
     <br>
     <input type="checkbox" name="sports" id="Golf">
     <label for="Golf">Golf</label>
-    </form>
-  </section>
-
+    
+    <br>
+    <br>
+    <br>
+    
+    <h3>select box(drop down list)</h3>
+    
+    <label for="city">City:</label>
+      
+    <select class="select" name="city" id="city"><!--multiple attribute-->
+    <option value="Select city">Select</option>
+    <option value="sydney">Sydney</option>
+    <option value="Florida">Florida</option>
+    <option value="Miami">Miami</option>
+    <option value="Melbourne">Melbourne</option>
+    <option value="Amsterdam">Amsterdam</option>
+   <hr>
+   <h3>Button controls</h3>
+   <button type="submit">Submit</button>
+   
+</form>
 </body>
 </html>

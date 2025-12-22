@@ -1,0 +1,11 @@
+.csstab{
+
+    font-family: Arial, sans-serif;
+    background-image: url(pizza.jpeg);
+}
+
+#tab td, #csstab th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}

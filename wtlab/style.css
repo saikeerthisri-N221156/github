@@ -1,11 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
+
+*.{ margin: 0;
+    padding:0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
-/* Navbar */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -24,12 +24,12 @@ header nav a {
 
 .logo {
     font-size: 24px;
-    font-weight: bold;
+    font-weight:bold;
 }
 
-/* Hero Section */
+
 .hero {
-    background: url("") center/cover no-repeat;
+    background: url("") center;
     color: white;
     text-align: center;
     padding: 100px 20px;
@@ -37,16 +37,19 @@ header nav a {
 
 .hero h1 {
     font-size: 40px;
+    color:black;
+    padding:10px;
 }
 
 .hero p {
-    margin: 15px 0;
+    margin: 15px 2px;
+    color:black;
+    padding:10px;
 }
 
 .hero button {
     padding: 12px 25px;
-    border: none;
-    background: #ff4d4d;
+    background: red;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -98,12 +101,37 @@ header nav a {
     cursor: pointer;
     border-radius: 20px;
 }
+h3 h2 {
+  text-align: left;
+  margin-bottom: 30px;
+}
 
+.form{
+    text-align:center;
+    background-color:tomato;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight:bold;
+}
+
+.name {
+    padding:20px;
+    font-style:bold;
+}
+
+.address {
+   padding:20px;
+   font-style:bold;
+   color:blue;
+   width:100%;
+   
+}
 /* Footer */
 footer {
     background: #333;
     color: white;
-    text-align: center;
-    padding: 15px;
+    text-align:center;
+    padding: 20px 40px;
     margin-top: 40px;
+  
 }
