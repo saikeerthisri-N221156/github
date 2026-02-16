@@ -5,7 +5,7 @@
 session_start();
 
 // GitHub OAuth settings
-$client_id = 'Ov23litERsA7Id6BsV17';
+$client_id = 'CLIENT_ID_HERE';
 $redirect_uri = 'http://localhost/github/wtlab/task3oAuth/callback.php';
 
 // GitHub login URL

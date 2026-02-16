@@ -64,10 +64,10 @@ import { getAuth, signInWithPopup, GoogleAuthProvider }
 from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDYqsKNZoV8mLFfPvfibLJBYTcqirxuikw",
-  authDomain: "first-project-67e3e.firebaseapp.com",
-  projectId: "first-project-67e3e",
-  appId: "1:629536345148:web:dd593a3fbc7c56fbc48739"
+  apiKey: "API_KEY_HERE",
+  authDomain: "AUTH DOMAIN_HERE",
+  projectId: "firebase-project-id",
+  appId: "APP ID_HERE"
 };
 
 const app = initializeApp(firebaseConfig);

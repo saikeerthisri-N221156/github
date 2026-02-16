@@ -55,7 +55,7 @@
     <div class="tagline">Customer Support Login using Google OAuth</div>
 
     <div id="g_id_onload"
-         data-client_id="190249683067-9vmemeue6hgr94vlgeh9iks2f5fm12cc.apps.googleusercontent.com"
+         data-client_id="CLIENT_ID_HERE"
          data-callback="handleCredentialResponse">
     </div>
 

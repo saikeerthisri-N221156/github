@@ -3,8 +3,8 @@
 <?php
 session_start();
 
-$client_id = 'Ov23litERsA7Id6BsV17';
-$client_secret = 'ea0c43394470e346d5868ca9c92caefa9a799ff5';
+$client_id = 'CLIENT_ID_HERE';       // replace with your GitHub client ID
+$client_secret = 'CLIENT_SECRET_HERE';   // replace with your GitHub client secret
 $redirect_uri = 'http://localhost/github/wtlab/task3oAuth/callback.php';
 
 if(!isset($_GET['code'])){
