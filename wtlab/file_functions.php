@@ -1,5 +1,5 @@
 <?php
-echo "<h2>PHP File Functions – Task 2</h2>";
+echo "<h2>PHP File Functions  Task 2</h2>";
 
 $file = "files/sample.txt";
 
@@ -147,3 +147,4 @@ fclose($log);
 
 echo "<br><b>Task 2 completed successfully</b>";
 ?>
+
