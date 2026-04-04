@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Attributes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="selectors.html">Selectors</a>
+    <a href="attributes.html">Attributes</a>
+    <a href="events.html">Events</a>
+    <a href="style.html">Style</a>
+    <a href="traversing.html">Traversing</a>
+    <a href="effects.html">Effects</a>
+</nav>
+
+<h1>jQuery Attribute Methods</h1>
+
+<!-- attr() -->
+<div class="section">
+    <h2>1. attr() - Get and Set Attributes</h2>
+
+    <img id="demo-img" src="https://picsum.photos/seed/jq1/150/100" alt="Original Image" style="display:block; margin:10px 0; border:1px solid #ccc;">
+
+    <button id="btn-get-src">Get src</button>
+    <button id="btn-get-alt">Get alt</button>
+    <button id="btn-set-src">Change image</button>
+    <button id="btn-set-alt">Change alt text</button>
+
+    <div class="output" id="out-attr"></div>
+
+    <h3>Change link href with attr()</h3>
+    <a id="demo-link" href="https://jquery.com">Visit jQuery.com</a>
+    <br><br>
+    <button id="btn-get-href">Get href</button>
+    <button id="btn-set-href">Change href</button>
+    <div class="output" id="out-attr2"></div>
+</div>
+
+<!-- removeAttr() -->
+<div class="section">
+    <h2>2. removeAttr() - Remove Attributes</h2>
+
+    <p id="styled-para" title="I have a title tooltip" style="color:blue; font-weight:bold;">
+        This paragraph has title, style and a data attribute.
+    </p>
+
+    <button id="btn-rm-title">removeAttr("title")</button>
+    <button id="btn-rm-style">removeAttr("style")</button>
+    <button class="btn-red" id="btn-rm-restore">Restore</button>
+
+    <div class="output" id="out-rm"></div>
+</div>
+
+<!-- prop() -->
+<div class="section">
+    <h2>3. prop() - Element Properties</h2>
+
+    <h3>Checkbox - checked property</h3>
+    <input type="checkbox" id="chk1"> <label for="chk1">Checkbox 1</label><br>
+    <input type="checkbox" id="chk2" checked> <label for="chk2">Checkbox 2 (starts checked)</label>
+    <br><br>
+
+    <button id="btn-check-all">prop(checked, true) - Check All</button>
+    <button id="btn-uncheck-all">prop(checked, false) - Uncheck All</button>
+    <button id="btn-get-checked">Get checked states</button>
+
+    <h3>Disable/Enable input</h3>
+    <input type="text" id="txt-input" value="Type here...">
+    <br><br>
+    <button id="btn-disable">prop(disabled, true)</button>
+    <button id="btn-enable">prop(disabled, false)</button>
+
+    <div class="output" id="out-prop"></div>
+</div>
+
+<!-- val() -->
+<div class="section">
+    <h2>4. val() - Form Values</h2>
+
+    <label>Text Input:</label>
+    <input type="text" id="val-text" value="Hello jQuery"><br>
+
+    <label>Number:</label>
+    <input type="number" id="val-num" value="10"><br>
+
+    <label>Select:</label>
+    <select id="val-select">
+        <option value="js">JavaScript</option>
+        <option value="py">Python</option>
+        <option value="java">Java</option>
+    </select><br><br>
+
+    <label>Textarea:</label><br>
+    <textarea id="val-textarea" rows="3" cols="30">Some text here</textarea>
+    <br><br>
+
+    <button id="btn-get-val">Get all values</button>
+    <button id="btn-set-text">Set text = "Changed by jQuery"</button>
+    <button id="btn-set-select">Set select = "py"</button>
+    <button class="btn-red" id="btn-clear-val">Clear all</button>
+
+    <div class="output" id="out-val"></div>
+</div>
+
+<footer>jQuery Lab - Attributes</footer>
+
+<script>
+$(document).ready(function() {
+
+    // attr() - get
+    $("#btn-get-src").click(function() {
+        var src = $("#demo-img").attr("src");
+        $("#out-attr").text("src = " + src);
+    });
+
+    $("#btn-get-alt").click(function() {
+        var alt = $("#demo-img").attr("alt");
+        $("#out-attr").text("alt = " + alt);
+    });
+
+    // attr() - set
+    $("#btn-set-src").click(function() {
+        $("#demo-img").attr("src", "https://picsum.photos/seed/jq2/150/100");
+        $("#out-attr").text("Image src changed to new image");
+    });
+
+    $("#btn-set-alt").click(function() {
+        $("#demo-img").attr("alt", "New alt text set by jQuery");
+        $("#out-attr").text("alt changed to: " + $("#demo-img").attr("alt"));
+    });
+
+    $("#btn-get-href").click(function() {
+        $("#out-attr2").text("href = " + $("#demo-link").attr("href"));
+    });
+
+    $("#btn-set-href").click(function() {
+        $("#demo-link").attr("href", "https://github.com").text("Now goes to GitHub");
+        $("#out-attr2").text("href changed to https://github.com");
+    });
+
+    // removeAttr()
+    var origStyle = "color:blue; font-weight:bold;";
+    var origTitle = "I have a title tooltip";
+
+    $("#btn-rm-title").click(function() {
+        $("#styled-para").removeAttr("title");
+        $("#out-rm").text("title attribute removed (hover to check)");
+    });
+
+    $("#btn-rm-style").click(function() {
+        $("#styled-para").removeAttr("style");
+        $("#out-rm").text("style attribute removed");
+    });
+
+    $("#btn-rm-restore").click(function() {
+        $("#styled-para").attr("title", origTitle).attr("style", origStyle);
+        $("#out-rm").text("Attributes restored");
+    });
+
+    // prop()
+    $("#btn-check-all").click(function() {
+        $("input[type='checkbox']").prop("checked", true);
+        $("#out-prop").text("All checkboxes checked via prop()");
+    });
+
+    $("#btn-uncheck-all").click(function() {
+        $("input[type='checkbox']").prop("checked", false);
+        $("#out-prop").text("All checkboxes unchecked via prop()");
+    });
+
+    $("#btn-get-checked").click(function() {
+        var c1 = $("#chk1").prop("checked");
+        var c2 = $("#chk2").prop("checked");
+        $("#out-prop").text("chk1 checked: " + c1 + " | chk2 checked: " + c2);
+    });
+
+    $("#btn-disable").click(function() {
+        $("#txt-input").prop("disabled", true);
+        $("#out-prop").text("Input disabled using prop()");
+    });
+
+    $("#btn-enable").click(function() {
+        $("#txt-input").prop("disabled", false);
+        $("#out-prop").text("Input enabled using prop()");
+    });
+
+    // val()
+    $("#btn-get-val").click(function() {
+        var t = $("#val-text").val();
+        var n = $("#val-num").val();
+        var s = $("#val-select").val();
+        var ta = $("#val-textarea").val();
+        $("#out-val").text("text: " + t + " | number: " + n + " | select: " + s + " | textarea: " + ta);
+    });
+
+    $("#btn-set-text").click(function() {
+        $("#val-text").val("Changed by jQuery");
+        $("#out-val").text("Text input value set using val()");
+    });
+
+    $("#btn-set-select").click(function() {
+        $("#val-select").val("py");
+        $("#out-val").text("Select changed to Python using val()");
+    });
+
+    $("#btn-clear-val").click(function() {
+        $("#val-text, #val-num, #val-textarea").val("");
+        $("#val-select").val("js");
+        $("#out-val").text("All fields cleared");
+    });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="selectors.html">Selectors</a>
+    <a href="attributes.html">Attributes</a>
+    <a href="events.html">Events</a>
+    <a href="style.html">Style</a>
+    <a href="traversing.html">Traversing</a>
+    <a href="effects.html">Effects</a>
+</nav>
+
+<h1>jQuery Lab - Home</h1>
+<p>This lab demonstrates jQuery DOM manipulation, events, traversing and effects.</p>
+
+<div class="section">
+    <h2>Project Files</h2>
+    <ul>
+        <li><a href="selectors.html">selectors.html</a> -    jQuery Selectors</li>
+        <li><a href="attributes.html">attributes.html</a> -   Attribute Methods</li>
+        <li><a href="events.html">events.html</a> -    Event Handling</li>
+        <li><a href="style.html">style.html</a> -    Style Manipulation</li>
+        <li><a href="traversing.html">traversing.html</a> -    DOM Traversing</li>
+        <li><a href="effects.html">effects.html</a> -    jQuery Effects</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Quick Test</h2>
+    <p id="test-para">Click the button below to test jQuery is working.</p>
+    <button id="test-btn">Click Me</button>
+    <div class="output" id="test-output">Output will appear here...</div>
+</div>
+
+
+<footer>jQuery Lab - DOM Manipulation Practice</footer>
+
+<script src="script.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#test-btn").click(function() {
+            $("#test-output").text("jQuery is working! Version: " + $.fn.jquery);
+            $("#test-para").css("color", "green");
+        });
+    });
+</script>
+</body>
+</html>
+<!--this is the main file-->
