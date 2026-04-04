@@ -1,19 +1,4 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.html");
-    exit();
-}
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard</title>
-</head>
-<body>
-    <?php
+<!-- <?php
 session_start();
 require_once "../config/database.php";
 
@@ -59,4 +44,26 @@ $users = $usersCollection->find();
 </table>
 
 </body>
-</html>
+</html> -->
+<?php
+session_start();
+require_once "../config/database.php";
+
+$result = $conn->query("SELECT * FROM users");
+?>
+
+<h2>Welcome <?php echo $_SESSION['user_name']; ?></h2>
+
+<table border="1">
+<tr>
+<th>Name</th>
+<th>Email</th>
+</tr>
+
+<?php while($row = $result->fetch_assoc()): ?>
+<tr>
+<td><?php echo $row['name']; ?></td>
+<td><?php echo $row['email']; ?></td>
+</tr>
+<?php endwhile; ?>
+</table>

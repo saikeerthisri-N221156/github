@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require_once "../config/database.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -36,5 +36,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ]);
 
     echo "Signup Successful";
+}
+?> -->
+
+<?php
+require_once "../config/database.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+
+    if ($conn->query($sql)) {
+        echo "Signup Successful";
+    } else {
+        echo "Error: " . $conn->error;
+    }
 }
 ?>

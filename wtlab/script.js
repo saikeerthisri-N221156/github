@@ -9,6 +9,7 @@ console.log("Name: " , Name);
 console.log("Age: " + age);
 console.log("Country: " + country);
 
+
 //TASK 2 BASIC FUNCTIONS
 //defining a function
 function hello(){
