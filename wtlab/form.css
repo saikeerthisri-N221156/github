@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #e8f5e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+p {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+/* FORM CARD */
+.form-container {
+    background: white;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #2e7d32;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* FORM ELEMENTS */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* BUTTON */
+form button {
+    width: 100%;
+    padding: 12px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form button:hover {
+    background: #1b5e20;
+}
+
+/*...........
+/* SWITCH LINK */
+.switch {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.switch a {
+    color: #0d5f12;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* MOBILE FRIENDLY */
+@media (max-width: 480px) {
+    .form-container {
+        margin: 10px;
+        padding: 20px;
+    }
+}
+

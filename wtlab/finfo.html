@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>Farmer Info</title>
+    <link rel="stylesheet" href="agri.css">
+</head>
+<body>
+    
+<!--javascript interactivity variables task-->
+<section class="js">
+    <h1 align="center">Your Crop Information</h1>
+    <br><br>
+    <h3 id="name"></h3>
+    <br>
+    <p id="count"></p>
+    <br>
+
+    <button onclick="increaseCount()">Add Crop</button><br><br>
+    
+    <p align="center"><a href="agri.html">GO HOME</a></p>
+</section>
+</body>
+<script>
+    const farmerName="Sridhar";
+    let cropCount=2;
+    var crop1="paddy";
+    var crop2="Black gram";
+
+
+    console.log("farmer Name:",farmerName);
+    console.log("Number of crops being cultivated :",cropCount);
+    console.log("Rabi: ",crop1);
+    console.log("Kharif: ",crop2);
+
+    document.getElementById("name").innerText = "Farmer Name: "+farmerName;
+    document.getElementById("count").innerText = "Crop Count: "+cropCount;
+    //update let variable
+    function increaseCount(){
+        cropCount=cropCount+1;
+        cropName=prompt("Enter crop name:");
+        if(cropName==null || cropName==""){
+            cropName="Unnamed Crop";
+        }
+        console.log("New Crop Added: ",cropName);
+
+        document.getElementById("count").innerText = "Crop Count: "+cropCount;
+    }
+
+    
+</script>
+</html>

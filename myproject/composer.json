@@ -1,0 +1,17 @@
+{
+    "name": "user/myproject",
+    "autoload": {
+        "psr-4": {
+            "User\\Myproject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "saikeerthisri-N221156",
+            "email": "n221156@rguktn.ac.in"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^1.15"
+    }
+}

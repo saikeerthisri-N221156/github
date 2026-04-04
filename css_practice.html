@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="table.css">
+	<title>CSS PRACTICE</title>
+    <body>
+    <h1>IFRAMES</h1>
+    <iframe src="/home/user/github/pizza.jpeg" frameborder="1"  width="300" height="400" name="m"></iframe>
+    <iframe src="/home/user/github/WT Lab Task 1.pdf" width="300" height="400" name="n" ></iframe>
+    <iframe src="" width="300" height="400" name="r"></iframe>
+    
+    
+    <h1>Tables with css</h1>
+    <h2>using inline css</h2>
+    
+    <table align="center" border="2" cellspacing="0"  cellpadding="15" bgcolor="lavender" width="500" height="400">
+
+	<caption align="center" fontsize="20"><b>TIME TABLE</caption>
+	<br>
+	<br>
+
+	<tr>
+	<th style="background:blue;">Days</th>
+	<td><b>1</b></td>
+	<td><b>2</b></td>
+	<td><b>3</b></td>
+	<td><b>4</b></td>
+	<td rowspan="7" style="background-color:violet;"><b>L<br>U<br>N<br>C<br>H</b></td>
+	<td><b>5</b></td>
+	<td><b>6</b></td>
+	<td><b>7</b></td>
+
+	</tr>
+
+
+	<tr>
+	<th>Monday</th>
+	<td>IOR</td>
+	<td>WT</td>
+	<td>DSP</td>
+	<td>COA</td>
+	<td colspan="3" align="center"> WT LAB </td>
+	</tr>
+
+	<tr>
+	<th>Tuesday</th>
+	<th> </th>
+	<td style="color:slateblue;">DSP</td>
+	<td>COA</td>
+	<td></td>
+	<td colspan="3" align="center"> COA LAB </td>
+	</tr>
+
+	<th style="background-color: gray;">Wednesday</th>
+	<td>IOR</td>
+	<td colspan="2" align="center">CD</td>
+	<td>WT</td>
+
+	<td colspan="3"></td>
+
+
+	<tr>
+	<th style="border-radius:5px;">Thursday</th>
+	<td></td>
+	<td>IOR</td>
+	<td>CD</td>
+	<td>WT</td>
+	<td colspan="3"></td>
+	</tr>
+
+
+	<tr>
+	<th style="background-image:pizza.jpeg;">Friday</th>
+	<td></td>
+	<td> DSP</td>
+	<td>COA</td>
+	<td></td>
+	<td colspan="3" align="center" style="font-size:larger; font-style:bold;">DSP LAB</td>
+	</tr>
+
+	<tr>
+	<th style="font-style:italic;"><font color="red">Saturday</th><font></th>
+	<td align="center" colspan="4"></td>
+	<td align="center" colspan="3"></td>
+	</tr>
+</table>
+
+<br>
+<br>
+<br>
+<hr>
+
+<h2>using external css</h2>
+<table align="center" border="1" cellspacing="0" cellpadding="15" bgcolor="pink" width="100" height="100" class="tab">
+	<caption align="center" fontsize="20"><b>LAB TIMINGS</caption>
+	<tr>
+	<th>Monday</th>
+	<td rowspan="3"></td>
+	<td>WT LAB</td>
+	</tr>
+
+	<tr>
+	<th id="row">tuesday</th>
+	<td>COA LAB</td>
+	</tr>
+
+	<tr>
+	<th>friday</th>
+	<td>DSP LAB</td>
+	</tr>
+
+</table>
+
+<style>
+   .tab{
+  border: 2px solid black;
+  font-weight: 200;
+  font-style: italic;
+
+   }
+   #row{
+	background-color: lightgreen;
+	color: blue;
+}
+</style>
+
+<br>
+<br>
+<br>
+<hr>
+
+<h2 class="head">using external css</h2>
+<table align="center" border="1" cellspacing="0" cellpadding="15" bgcolor="silver" width="100" height="100" class="csstab">
+	<caption fontsize="20"><b>LAB TIMINGS</caption>
+	<tr id="tab">
+	<th>Monday</th>
+	<td rowspan="3"></td>
+	<td>WT LAB</td>
+	</tr>
+
+	<tr>
+	<th>tuesday</th>
+	<td>COA LAB</td>
+	</tr>
+
+	<tr>
+	<th>friday</th>
+	<td>DSP LAB</td>
+	</tr>
+
+</table>
+
+
+
+</body>
+</head>
+</html>

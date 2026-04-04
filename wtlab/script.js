@@ -9,6 +9,7 @@ console.log("Name: " , Name);
 console.log("Age: " + age);
 console.log("Country: " + country);
 
+
 //TASK 2 BASIC FUNCTIONS
 //defining a function
 function hello(){
@@ -30,8 +31,7 @@ arrowfun("keerthi");
 
 //arrow function for addition and subtraction
 const add=(a,b)=>{
-    console.log("addition:",a+b);
-    
+    console.log("addition:",a+b);   
 }
 add(10,20);
 
@@ -42,6 +42,9 @@ console.log("multiplication of 10 and 5 is: ",mult(10,5));
 
 
 
-
+//function expression
+function func(){
+    
+}
 
 
