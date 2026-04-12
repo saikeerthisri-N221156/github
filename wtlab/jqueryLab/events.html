@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Events</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="selectors.html">Selectors</a>
+    <a href="attributes.html">Attributes</a>
+    <a href="events.html">Events</a>
+    <a href="style.html">Style</a>
+    <a href="traversing.html">Traversing</a>
+    <a href="effects.html">Effects</a>
+</nav>
+
+<h1>jQuery Event Handling</h1>
+
+<!-- Mouse Events -->
+<div class="section">
+    <h2>1. Mouse Events</h2>
+
+    <h3>click()</h3>
+    <button id="btn-click">Click Me</button>
+    <div class="output" id="out-click"></div>
+
+    <h3>dblclick()</h3>
+    <button id="btn-dblclick">Double Click Me</button>
+    <div class="output" id="out-dbl"></div>
+
+    <h3>mouseenter() and mouseleave()</h3>
+    <div id="hover-div" style="width:200px; height:80px; background:#3498db; color:white; text-align:center; line-height:80px; border-radius:4px; cursor:pointer;">
+        Hover Over Me
+    </div>
+    <div class="output" id="out-hover"></div>
+
+    <h3>hover() shorthand</h3>
+    <div id="hover2" style="width:200px; height:50px; background:#e67e22; color:white; text-align:center; line-height:50px; border-radius:4px; cursor:pointer;">
+        hover() shorthand
+    </div>
+    <div class="output" id="out-hover2"></div>
+
+    <h3>mousedown() and mouseup()</h3>
+    <button id="btn-mousedown">Hold me</button>
+    <div class="output" id="out-mouse"></div>
+</div>
+
+<!-- Keyboard Events -->
+<div class="section">
+    <h2>2. Keyboard Events</h2>
+
+    <h3>keydown(), keyup(), keypress()</h3>
+    <label>Type in this box:</label><br>
+    <input type="text" id="key-input" placeholder="Type here..." style="width:300px;">
+    <div class="output" id="out-key"></div>
+</div>
+
+<!-- Form Events -->
+<div class="section">
+    <h2>3. Form Events</h2>
+
+    <form id="demo-form">
+        <label>Name:</label><br>
+        <input type="text" id="inp-name" placeholder="Enter name"><br><br>
+
+        <label>Choose language:</label><br>
+        <select id="inp-lang">
+            <option value="">-- Select --</option>
+            <option value="js">JavaScript</option>
+            <option value="py">Python</option>
+            <option value="java">Java</option>
+        </select><br><br>
+
+        <label>Message:</label><br>
+        <textarea id="inp-msg" rows="3" cols="30" placeholder="Enter message"></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <div class="output" id="out-form"></div>
+</div>
+
+<!-- on() and off() -->
+<div class="section">
+    <h2>4. on() and off()</h2>
+
+    <div id="on-off-box" style="width:200px; height:60px; background:#9b59b6; color:white; text-align:center; line-height:60px; border-radius:4px; cursor:pointer;">
+        Click me (handler ON)
+    </div>
+    <br>
+    <button id="btn-on">on("click") - Bind</button>
+    <button class="btn-red" id="btn-off">off("click") - Unbind</button>
+    <button class="btn-blue" id="btn-once">one() - Fire Once</button>
+    <button id="btn-trigger">trigger("click")</button>
+
+    <div class="output" id="out-onoff"></div>
+
+    <h3>Event Delegation with on()</h3>
+    <ul id="dyn-list" class="demo-list">
+        <li>Static Item 1</li>
+        <li>Static Item 2</li>
+    </ul>
+    <button id="btn-add-item">Add Item</button>
+    <button class="btn-red" id="btn-remove-item">Remove Last</button>
+    <div class="output" id="out-delegate">Click any list item (including newly added ones)</div>
+</div>
+
+<footer>jQuery Lab - Events</footer>
+
+<script>
+$(document).ready(function() {
+
+    // click()
+    var clickCount = 0;
+    $("#btn-click").click(function() {
+        clickCount++;
+        $("#out-click").text("click() fired! Count: " + clickCount);
+    });
+
+    // dblclick()
+    $("#btn-dblclick").dblclick(function() {
+        $("#out-dbl").text("dblclick() fired!");
+        $(this).css("background-color", "#e74c3c");
+    });
+
+    // mouseenter() and mouseleave()
+    $("#hover-div").mouseenter(function() {
+        $(this).css("background-color", "#2ecc71");
+        $("#out-hover").text("mouseenter() - mouse entered the div");
+    });
+
+    $("#hover-div").mouseleave(function() {
+        $(this).css("background-color", "#3498db");
+        $("#out-hover").text("mouseleave() - mouse left the div");
+    });
+
+    // hover() shorthand
+    $("#hover2").hover(
+        function() {
+            $(this).css("background-color", "#27ae60").text("Mouse In!");
+            $("#out-hover2").text("hover() - in handler");
+        },
+        function() {
+            $(this).css("background-color", "#e67e22").text("hover() shorthand");
+            $("#out-hover2").text("hover() - out handler");
+        }
+    );
+
+    // mousedown() and mouseup()
+    $("#btn-mousedown").mousedown(function() {
+        $("#out-mouse").text("mousedown() - button pressed down");
+        $(this).css("background-color", "#e74c3c");
+    });
+
+    $("#btn-mousedown").mouseup(function() {
+        $("#out-mouse").text("mouseup() - button released");
+        $(this).css("background-color", "#4CAF50");
+    });
+
+    // Keyboard events
+    $("#key-input").keydown(function(e) {
+        $("#out-key").text("keydown() - Key: " + e.key + " | Code: " + e.keyCode);
+    });
+
+    $("#key-input").keyup(function(e) {
+        $("#out-key").text("keyup() - Key released: " + e.key + " | Value so far: " + $(this).val());
+    });
+
+    $("#key-input").keypress(function(e) {
+        // keypress fires for printable chars
+        if(e.key === "Enter") {
+            $("#out-key").text("keypress() - Enter pressed! Value: " + $(this).val());
+        }
+    });
+
+    // Form events
+    $("#inp-name").focus(function() {
+        $("#out-form").text("focus() - Name field focused");
+        $(this).css("border-color", "#4CAF50");
+    });
+
+    $("#inp-name").blur(function() {
+        $("#out-form").text("blur() - Name field lost focus. Value: " + $(this).val());
+        $(this).css("border-color", "#ccc");
+    });
+
+    $("#inp-lang").change(function() {
+        $("#out-form").text("change() - Language changed to: " + $(this).val());
+    });
+
+    $("#demo-form").submit(function(e) {
+        e.preventDefault();
+        var name = $("#inp-name").val();
+        var lang = $("#inp-lang").val();
+        var msg  = $("#inp-msg").val();
+        if(!name) {
+            $("#out-form").text("submit() - Please enter a name!");
+            return;
+        }
+        $("#out-form").text("submit() - Form submitted! Name: " + name + " | Lang: " + lang + " | Msg: " + msg);
+    });
+
+    // on() and off()
+    function boxClickHandler() {
+        $("#out-onoff").text("on() click handler fired!");
+    }
+
+    $("#on-off-box").on("click", boxClickHandler);
+
+    $("#btn-on").click(function() {
+        $("#on-off-box").on("click", boxClickHandler).text("Click me (handler ON)");
+        $("#out-onoff").text("on() - handler bound to element");
+    });
+
+    $("#btn-off").click(function() {
+        $("#on-off-box").off("click").text("Click me (handler OFF)");
+        $("#out-onoff").text("off() - handler removed from element");
+    });
+
+    $("#btn-once").click(function() {
+        $("#on-off-box").one("click", function() {
+            $("#out-onoff").text("one() - this will only fire once!");
+        });
+        $("#out-onoff").text("one() handler attached - click the box once");
+    });
+
+    $("#btn-trigger").click(function() {
+        $("#on-off-box").trigger("click");
+        $("#out-onoff").text("trigger() - click event triggered programmatically");
+    });
+
+    // Event Delegation
+    var itemCount = 2;
+    $("#dyn-list").on("click", "li", function() {
+        $("#out-delegate").text("Delegated click on: " + $(this).text());
+        $(this).toggleClass("highlight");
+    });
+
+    $("#btn-add-item").click(function() {
+        itemCount++;
+        $("#dyn-list").append("<li>Dynamic Item " + itemCount + "</li>");
+    });
+
+    $("#btn-remove-item").click(function() {
+        if($("#dyn-list li").length > 1) {
+            $("#dyn-list li:last").remove();
+            itemCount--;
+        }
+    });
+
+});
+</script>
+</body>
+</html>

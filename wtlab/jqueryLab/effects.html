@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Effects</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="selectors.html">Selectors</a>
+    <a href="attributes.html">Attributes</a>
+    <a href="events.html">Events</a>
+    <a href="style.html">Style</a>
+    <a href="traversing.html">Traversing</a>
+    <a href="effects.html">Effects</a>
+</nav>
+
+<h1>jQuery Effects</h1>
+
+<!-- Basic Effects -->
+<div class="section">
+    <h2>1. Basic Effects - show(), hide(), toggle()</h2>
+
+    <div id="basic-box" class="demo-box">Box</div>
+
+    <button id="btn-show">show()</button>
+    <button id="btn-hide">hide()</button>
+    <button id="btn-toggle">toggle()</button>
+    <button id="btn-show-slow">show("slow")</button>
+    <button id="btn-hide-fast">hide("fast")</button>
+    <button id="btn-toggle-ms">toggle(800)</button>
+
+    <div class="output" id="out-basic"></div>
+</div>
+
+<!-- Fade Effects -->
+<div class="section">
+    <h2>2. Fade Effects - fadeIn(), fadeOut(), fadeToggle(), fadeTo()</h2>
+
+    <div id="fade-box" class="demo-box" style="background-color:#9b59b6;">Fade Box</div>
+
+    <button id="btn-fadeIn">fadeIn()</button>
+    <button id="btn-fadeOut">fadeOut()</button>
+    <button id="btn-fadeToggle">fadeToggle()</button>
+    <button id="btn-fadeTo-25">fadeTo(0.25)</button>
+    <button id="btn-fadeTo-75">fadeTo(0.75)</button>
+    <button id="btn-fadeTo-full">fadeTo(1.0)</button>
+
+    <div class="output" id="out-fade"></div>
+</div>
+
+<!-- Slide Effects -->
+<div class="section">
+    <h2>3. Slide Effects - slideDown(), slideUp(), slideToggle()</h2>
+
+    <button id="slide-header-btn" style="width:100%; text-align:left; background:#555; margin-bottom:5px;">
+        Click to toggle panel content ▼
+    </button>
+    <div id="slide-panel" class="slide-content">
+        <p>This is the sliding panel content!</p>
+        <p>slideDown() reveals it, slideUp() hides it, slideToggle() switches.</p>
+    </div>
+    <br>
+
+    <button id="btn-slideDown">slideDown()</button>
+    <button id="btn-slideUp">slideUp()</button>
+    <button id="btn-slideToggle">slideToggle()</button>
+    <button id="btn-slide-slow">slideToggle("slow")</button>
+
+    <div class="output" id="out-slide"></div>
+</div>
+
+<!-- Custom Animation -->
+<div class="section">
+    <h2>4. Custom Animation - animate()</h2>
+
+    <div style="border:1px solid #ccc; padding:10px; height:120px; position:relative; overflow:hidden; background:#fafafa;">
+        <div class="anim-box" id="anim-box" style="position:absolute; left:10px; top:10px;"></div>
+    </div>
+    <br>
+
+    <button id="btn-move-right">Move Right (+150px)</button>
+    <button id="btn-move-back">Move Back (left:10px)</button>
+    <button id="btn-anim-grow">Grow (width+height)</button>
+    <button id="btn-anim-shrink">Shrink</button>
+    <button id="btn-anim-fade">Opacity 0.2</button>
+    <button id="btn-anim-unfade">Opacity 1</button>
+    <button id="btn-anim-chain">Chained Animation</button>
+    <button class="btn-red" id="btn-anim-reset">Reset</button>
+
+    <div class="output" id="out-anim"></div>
+</div>
+
+<!-- Animation Control -->
+<div class="section">
+    <h2>5. Animation Controls - stop(), finish(), delay()</h2>
+
+    <div style="border:1px solid #ccc; padding:10px; background:#fafafa;">
+        <div id="stop-bar" style="width:30%; height:40px; background:#3498db; border-radius:4px;"></div>
+    </div>
+    <br>
+
+    <button id="btn-start-loop">Start Loop Animation</button>
+    <button class="btn-red" id="btn-stop">stop()</button>
+    <button class="btn-red" id="btn-stop-clear">stop(true) - Clear Queue</button>
+    <button class="btn-orange" id="btn-finish">finish()</button>
+
+    <div class="output" id="out-stop"></div>
+
+    <h3>delay() - Pause Between Animations</h3>
+    <div id="delay-box" class="demo-box" style="width:80px; height:40px; line-height:40px; font-size:12px; background:#27ae60;">delay</div>
+    <button id="btn-delay">animate → delay(1000) → animate</button>
+    <div class="output" id="out-delay"></div>
+</div>
+
+<!-- queue(), dequeue(), clearQueue() -->
+<div class="section">
+    <h2>6. queue(), dequeue(), clearQueue()</h2>
+
+    <div id="q-box" class="demo-box" style="width:80px; height:50px; line-height:50px; font-size:12px;">queue</div>
+    <br>
+
+    <button id="btn-enqueue">Add 4 to queue</button>
+    <button id="btn-dequeue">dequeue()</button>
+    <button class="btn-red" id="btn-clearqueue">clearQueue()</button>
+    <button id="btn-check-queue">Check queue length</button>
+
+    <div class="output" id="out-queue"></div>
+</div>
+
+<footer>jQuery Lab - Effects</footer>
+
+<script>
+$(document).ready(function() {
+
+    // Basic Effects
+    $("#btn-show").click(function() {
+        $("#basic-box").show();
+        $("#out-basic").text("show() - box is now visible");
+    });
+
+    $("#btn-hide").click(function() {
+        $("#basic-box").hide();
+        $("#out-basic").text("hide() - box is now hidden");
+    });
+
+    $("#btn-toggle").click(function() {
+        $("#basic-box").toggle();
+        $("#out-basic").text("toggle() - visibility switched");
+    });
+
+    $("#btn-show-slow").click(function() {
+        $("#basic-box").show("slow");
+        $("#out-basic").text("show('slow') - 600ms reveal");
+    });
+
+    $("#btn-hide-fast").click(function() {
+        $("#basic-box").hide("fast");
+        $("#out-basic").text("hide('fast') - 200ms hide");
+    });
+
+    $("#btn-toggle-ms").click(function() {
+        $("#basic-box").toggle(800);
+        $("#out-basic").text("toggle(800) - 800ms animated toggle");
+    });
+
+    // Fade Effects
+    $("#btn-fadeIn").click(function() {
+        $("#fade-box").fadeIn(600);
+        $("#out-fade").text("fadeIn(600) - fade in over 600ms");
+    });
+
+    $("#btn-fadeOut").click(function() {
+        $("#fade-box").fadeOut(600);
+        $("#out-fade").text("fadeOut(600) - fade out over 600ms");
+    });
+
+    $("#btn-fadeToggle").click(function() {
+        $("#fade-box").fadeToggle(400, function() {
+            $("#out-fade").text("fadeToggle callback fired!");
+        });
+        $("#out-fade").text("fadeToggle(400) - toggling fade");
+    });
+
+    $("#btn-fadeTo-25").click(function() {
+        $("#fade-box").fadeTo(400, 0.25);
+        $("#out-fade").text("fadeTo(400, 0.25) - faded to 25% opacity");
+    });
+
+    $("#btn-fadeTo-75").click(function() {
+        $("#fade-box").fadeTo(400, 0.75);
+        $("#out-fade").text("fadeTo(400, 0.75) - faded to 75% opacity");
+    });
+
+    $("#btn-fadeTo-full").click(function() {
+        $("#fade-box").fadeTo(400, 1.0);
+        $("#out-fade").text("fadeTo(400, 1.0) - fully opaque");
+    });
+
+    // Slide Effects
+    $("#slide-header-btn").click(function() {
+        $("#slide-panel").slideToggle(400);
+    });
+
+    $("#btn-slideDown").click(function() {
+        $("#slide-panel").slideDown(500);
+        $("#out-slide").text("slideDown(500) - panel revealed");
+    });
+
+    $("#btn-slideUp").click(function() {
+        $("#slide-panel").slideUp(500);
+        $("#out-slide").text("slideUp(500) - panel hidden");
+    });
+
+    $("#btn-slideToggle").click(function() {
+        $("#slide-panel").slideToggle(400);
+        $("#out-slide").text("slideToggle(400) - toggled");
+    });
+
+    $("#btn-slide-slow").click(function() {
+        $("#slide-panel").slideToggle("slow");
+        $("#out-slide").text("slideToggle('slow') - 600ms");
+    });
+
+    // Custom Animation - animate()
+    $("#btn-move-right").click(function() {
+        $("#anim-box").animate({ left: "+=150px" }, 500);
+        $("#out-anim").text("animate({left:'+=150px'}, 500)");
+    });
+
+    $("#btn-move-back").click(function() {
+        $("#anim-box").animate({ left: "10px" }, 500);
+        $("#out-anim").text("animate({left:'10px'}, 500) - moved back");
+    });
+
+    $("#btn-anim-grow").click(function() {
+        $("#anim-box").animate({ width: "100px", height: "100px" }, 400);
+        $("#out-anim").text("animate({width:'100px', height:'100px'}, 400)");
+    });
+
+    $("#btn-anim-shrink").click(function() {
+        $("#anim-box").animate({ width: "80px", height: "80px" }, 400);
+        $("#out-anim").text("animate() - shrunk back");
+    });
+
+    $("#btn-anim-fade").click(function() {
+        $("#anim-box").animate({ opacity: 0.2 }, 400);
+        $("#out-anim").text("animate({opacity: 0.2}, 400)");
+    });
+
+    $("#btn-anim-unfade").click(function() {
+        $("#anim-box").animate({ opacity: 1 }, 400);
+        $("#out-anim").text("animate({opacity: 1}, 400)");
+    });
+
+    $("#btn-anim-chain").click(function() {
+        // Chained animations - they run in sequence
+        $("#anim-box")
+            .animate({ left: "200px" }, 400)
+            .animate({ top: "30px" }, 300)
+            .animate({ opacity: 0.3 }, 300)
+            .animate({ left: "10px", top: "10px", opacity: 1 }, 500);
+        $("#out-anim").text("Chained: 4 animations queued in sequence");
+    });
+
+    $("#btn-anim-reset").click(function() {
+        $("#anim-box").stop(true, true).css({ left: "10px", top: "10px", width: "80px", height: "80px", opacity: 1 });
+        $("#out-anim").text("Reset - stop(true,true) applied");
+    });
+
+    // stop() / finish()
+    var looping = false;
+
+    function runLoop() {
+        if (!looping) return;
+        $("#stop-bar")
+            .animate({ width: "90%" }, 800)
+            .animate({ width: "30%" }, 800, function() {
+                if (looping) runLoop();
+            });
+    }
+
+    $("#btn-start-loop").click(function() {
+        looping = true;
+        runLoop();
+        $("#out-stop").text("Loop started - animating width back and forth");
+    });
+
+    $("#btn-stop").click(function() {
+        $("#stop-bar").stop();
+        $("#out-stop").text("stop() - paused at current position, queue kept");
+    });
+
+    $("#btn-stop-clear").click(function() {
+        looping = false;
+        $("#stop-bar").stop(true);
+        $("#out-stop").text("stop(true) - stopped and queue cleared");
+    });
+
+    $("#btn-finish").click(function() {
+        looping = false;
+        $("#stop-bar").finish();
+        $("#out-stop").text("finish() - jumped to end of all queued animations");
+    });
+
+    // delay()
+    $("#btn-delay").click(function() {
+        $("#delay-box")
+            .animate({ opacity: 0.2 }, 400)
+            .delay(1000)
+            .animate({ opacity: 1 }, 400);
+        $("#out-delay").text("animate → delay(1000ms) → animate - watch the box!");
+    });
+
+    // queue() / dequeue() / clearQueue()
+    $("#btn-enqueue").click(function() {
+        $("#q-box")
+            .animate({ marginLeft: "100px" }, 500)
+            .animate({ marginLeft: "0px" }, 500)
+            .animate({ opacity: 0.2 }, 400)
+            .animate({ opacity: 1 }, 400);
+        $("#out-queue").text("4 animations added to queue. queue length: " + $("#q-box").queue("fx").length);
+    });
+
+    $("#btn-dequeue").click(function() {
+        $("#q-box").dequeue("fx");
+        $("#out-queue").text("dequeue('fx') - executed next item. Remaining: " + $("#q-box").queue("fx").length);
+    });
+
+    $("#btn-clearqueue").click(function() {
+        $("#q-box").clearQueue("fx").stop();
+        $("#out-queue").text("clearQueue('fx') - all pending animations removed");
+    });
+
+    $("#btn-check-queue").click(function() {
+        var len = $("#q-box").queue("fx").length;
+        $("#out-queue").text("queue('fx').length = " + len);
+    });
+
+});
+</script>
+</body>
+</html>

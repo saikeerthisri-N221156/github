@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Selectors</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-4.0.0.min.js"></script>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="selectors.html">Selectors</a>
+    <a href="attributes.html">Attributes</a>
+    <a href="events.html">Events</a>
+    <a href="style.html">Style</a>
+    <a href="traversing.html">Traversing</a>
+    <a href="effects.html">Effects</a>
+</nav>
+
+<h1>jQuery Selectors</h1>
+
+<!-- Basic Selectors -->
+<div class="section">
+    <h2>1. Basic Selectors</h2>
+
+    <h3>Element Selector - $("p")</h3>
+    <p class="para">Paragraph 1</p>
+    <p class="para">Paragraph 2</p>
+    <p class="para">Paragraph 3</p>
+    <button id="btn-element">Select all &lt;p&gt;</button>
+    <div class="output" id="out1"></div>
+
+    <h3>ID Selector - $("#myId")</h3>
+    <p id="special-para">This paragraph has id="special-para"</p>
+    <button id="btn-id">Select #special-para</button>
+    <div class="output" id="out2"></div>
+
+    <h3>Class Selector - $(".myClass")</h3>
+    <p class="highlight-me">Class item 1</p>
+    <p class="highlight-me">Class item 2</p>
+    <p>No class here</p>
+    <button id="btn-class">Select .highlight-me</button>
+    <div class="output" id="out3"></div>
+
+    <h3>Multiple Selector - $("h3, p")</h3>
+    <button id="btn-multi">Select h3 and p together</button>
+    <div class="output" id="out4"></div>
+</div>
+
+<!-- Hierarchy Selectors -->
+<div class="section">
+    <h2>2. Hierarchy Selectors</h2>
+
+    <div id="parent-div">
+        <p>Direct child paragraph</p>
+        <span>Direct child span</span>
+        <div id="inner-div">
+            <p>Nested paragraph (grandchild)</p>
+        </div>
+    </div>
+
+    <button id="btn-desc">$("div p") - All descendants</button>
+    <button id="btn-child">$("#parent-div > p") - Direct child only</button>
+    <br><br>
+
+    <p id="prev-el">I am prev element</p>
+    <p id="next-el">I am next element (adjacent to prev)</p>
+    <p>Another sibling</p>
+    <button id="btn-adj">$("#prev-el + p") - Adjacent sibling</button>
+    <button id="btn-gen">$("#prev-el ~ p") - General siblings</button>
+
+    <div class="output" id="out5"></div>
+</div>
+
+<!-- Filter Selectors -->
+<div class="section">
+    <h2>3. Filter Selectors</h2>
+
+    <ul class="demo-list" id="filter-ul">
+        <li>Item 0</li>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li class="skip">Item 5 (skip class)</li>
+    </ul>
+
+    <button id="btn-first">:first</button>
+    <button id="btn-last">:last</button>
+    <button id="btn-eq">:eq(2)</button>
+    <button id="btn-even">:even</button>
+    <button id="btn-odd">:odd</button>
+    <button id="btn-not">:not(.skip)</button>
+    <button class="btn-red" id="btn-filter-reset">Reset</button>
+
+    <div class="output" id="out6"></div>
+</div>
+
+<!-- Attribute Selectors -->
+<div class="section">
+    <h2>4. Attribute Selectors</h2>
+
+    <ul class="demo-list" id="attr-ul">
+        <li data-type="text" href="index.html">has data-type="text", href starts with "index"</li>
+        <li data-type="number" href="about.html">has data-type="number"</li>
+        <li data-type="text" href="contact.html">has data-type="text"</li>
+        <li href="index-page.html">no data-type, href starts with "index"</li>
+        <li>no attributes</li>
+    </ul>
+
+    <button id="btn-has-attr">[data-type] - has attr</button>
+    <button id="btn-eq-attr">[data-type="text"] - equals</button>
+    <button id="btn-start-attr">[href^="index"] - starts with</button>
+    <button id="btn-end-attr">[href$=".html"] - ends with</button>
+    <button id="btn-cont-attr">[href*="contact"] - contains</button>
+    <button class="btn-red" id="btn-attr-reset">Reset</button>
+
+    <div class="output" id="out7"></div>
+</div>
+
+<footer>jQuery Lab - Selectors</footer>
+
+<script>
+$(document).ready(function() {
+
+    // Basic Selectors
+    $("#btn-element").click(function() {
+        $(".para").css("background-color", "yellow");
+        $("#out1").text("Selected all <p> elements - count: " + $(".para").length);
+    });
+
+    $("#btn-id").click(function() {
+        $("#special-para").css("color", "red").css("font-weight", "bold");
+        $("#out2").text("Selected #special-para - 1 element");
+    });
+
+    $("#btn-class").click(function() {
+        $(".highlight-me").css("background-color", "lightblue");
+        $("#out3").text("Selected .highlight-me - count: " + $(".highlight-me").length);
+    });
+
+    $("#btn-multi").click(function() {
+        var count = $(".section h3, .section p").length;
+        $(".section h3, .section p").css("border-left", "3px solid green");
+        $("#out4").text("Selected h3 and p together - count: " + count);
+    });
+
+    // Hierarchy Selectors
+    $("#btn-desc").click(function() {
+        $("div p").css("background-color", "lightyellow");
+        $("#out5").text("div p (all descendant p) - count: " + $("div p").length);
+    });
+
+    $("#btn-child").click(function() {
+        $("#parent-div > p").css("background-color", "lightgreen");
+        $("#out5").text("parent > child (direct only) - count: " + $("#parent-div > p").length);
+    });
+
+    $("#btn-adj").click(function() {
+        $("#prev-el + p").css("color", "blue").css("font-weight", "bold");
+        $("#out5").text("prev + next (adjacent sibling) - " + $("#prev-el + p").text());
+    });
+
+    $("#btn-gen").click(function() {
+        $("#prev-el ~ p").css("background-color", "lightyellow");
+        $("#out5").text("prev ~ siblings (all following) - count: " + $("#prev-el ~ p").length);
+    });
+
+    // Filter Selectors
+    function resetList() {
+        $("#filter-ul li").css({ "background-color": "", "color": "", "font-weight": "" });
+    }
+
+    $("#btn-first").click(function() {
+        resetList();
+        $("#filter-ul li:first").css("background-color", "yellow");
+        $("#out6").text(":first selected - " + $("#filter-ul li:first").text());
+    });
+
+    $("#btn-last").click(function() {
+        resetList();
+        $("#filter-ul li:last").css("background-color", "yellow");
+        $("#out6").text(":last selected - " + $("#filter-ul li:last").text());
+    });
+
+    $("#btn-eq").click(function() {
+        resetList();
+        $("#filter-ul li:eq(2)").css("background-color", "orange");
+        $("#out6").text(":eq(2) selected - " + $("#filter-ul li:eq(2)").text());
+    });
+
+    $("#btn-even").click(function() {
+        resetList();
+        $("#filter-ul li:even").css("background-color", "lightblue");
+        $("#out6").text(":even selected (index 0,2,4...)");
+    });
+
+    $("#btn-odd").click(function() {
+        resetList();
+        $("#filter-ul li:odd").css("background-color", "lightpink");
+        $("#out6").text(":odd selected (index 1,3,5...)");
+    });
+
+    $("#btn-not").click(function() {
+        resetList();
+        $("#filter-ul li:not(.skip)").css("background-color", "lightgreen");
+        $("#out6").text(":not(.skip) selected - count: " + $("#filter-ul li:not(.skip)").length);
+    });
+
+    $("#btn-filter-reset").click(function() {
+        resetList();
+        $("#out6").text("Reset done");
+    });
+
+    // Attribute Selectors
+    function resetAttr() {
+        $("#attr-ul li").css({ "background-color": "", "color": "" });
+    }
+
+    $("#btn-has-attr").click(function() {
+        resetAttr();
+        $("#attr-ul li[data-type]").css("background-color", "yellow");
+        $("#out7").text("[data-type] - has attr - count: " + $("#attr-ul li[data-type]").length);
+    });
+
+    $("#btn-eq-attr").click(function() {
+        resetAttr();
+        $("#attr-ul li[data-type='text']").css("background-color", "lightblue");
+        $("#out7").text("[data-type='text'] equals - count: " + $("#attr-ul li[data-type='text']").length);
+    });
+
+    $("#btn-start-attr").click(function() {
+        resetAttr();
+        $("#attr-ul li[href^='index']").css("background-color", "lightgreen");
+        $("#out7").text("[href^='index'] starts with - count: " + $("#attr-ul li[href^='index']").length);
+    });
+
+    $("#btn-end-attr").click(function() {
+        resetAttr();
+        $("#attr-ul li[href$='.html']").css("background-color", "lightyellow");
+        $("#out7").text("[href$='.html'] ends with - count: " + $("#attr-ul li[href$='.html']").length);
+    });
+
+    $("#btn-cont-attr").click(function() {
+        resetAttr();
+        $("#attr-ul li[href*='contact']").css("background-color", "lightcoral");
+        $("#out7").text("[href*='contact'] contains - count: " + $("#attr-ul li[href*='contact']").length);
+    });
+
+    $("#btn-attr-reset").click(function() {
+        resetAttr();
+        $("#out7").text("Reset done");
+    });
+
+});
+</script>
+</body>
+</html>

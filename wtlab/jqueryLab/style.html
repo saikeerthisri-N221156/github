@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Style</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .theme-light { background-color: #ffffff; color: #000000; }
+        .theme-dark  { background-color: #222222; color: #ffffff; }
+        .theme-blue  { background-color: #d5eaff; color: #003080; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="selectors.html">Selectors</a>
+    <a href="attributes.html">Attributes</a>
+    <a href="events.html">Events</a>
+    <a href="style.html">Style</a>
+    <a href="traversing.html">Traversing</a>
+    <a href="effects.html">Effects</a>
+</nav>
+
+<h1>jQuery Style Manipulation</h1>
+
+<!-- css() -->
+<div class="section">
+    <h2>1. css() - Get and Set CSS Properties</h2>
+
+    <p id="css-target" style="padding:10px; border:1px solid #ccc;">
+        This paragraph will be styled using css() method.
+    </p>
+
+    <button id="btn-get-color">Get color</button>
+    <button id="btn-set-color">Set color = red</button>
+    <button id="btn-set-bg">Set background = yellow</button>
+    <button id="btn-set-multi">Set multiple (css object)</button>
+    <button id="btn-set-size">Set font-size = 20px</button>
+    <button class="btn-red" id="btn-css-reset">Reset</button>
+
+    <div class="output" id="out-css"></div>
+</div>
+
+<!-- addClass() -->
+<div class="section">
+    <h2>2. addClass() - Add Classes</h2>
+
+    <p id="add-target" style="padding:10px; border:1px solid #ccc;">
+        This text will have classes added to it.
+    </p>
+
+    <button id="btn-add-bold">addClass("bold")</button>
+    <button id="btn-add-italic">addClass("italic")</button>
+    <button id="btn-add-big">addClass("big")</button>
+    <button id="btn-add-red">addClass("red-text")</button>
+    <button id="btn-add-greenbg">addClass("green-bg")</button>
+    <button id="btn-add-multi">addClass("bold italic big")</button>
+    <button class="btn-red" id="btn-add-reset">Reset</button>
+
+    <div class="output" id="out-add"></div>
+</div>
+
+<!-- removeClass() -->
+<div class="section">
+    <h2>3. removeClass() - Remove Classes</h2>
+
+    <p id="rm-target" class="bold italic big red-text" style="padding:10px; border:1px solid #ccc;">
+        This text has bold, italic, big, red-text classes applied.
+    </p>
+
+    <button id="btn-rm-bold">removeClass("bold")</button>
+    <button id="btn-rm-italic">removeClass("italic")</button>
+    <button id="btn-rm-big">removeClass("big")</button>
+    <button id="btn-rm-all">removeClass() - remove all</button>
+    <button class="btn-red" id="btn-rm-restore">Restore all</button>
+
+    <div class="output" id="out-rm"></div>
+</div>
+
+<!-- toggleClass() -->
+<div class="section">
+    <h2>4. toggleClass() - Toggle Classes</h2>
+
+    <div id="toggle-target" style="padding:15px; border:1px solid #ccc;">
+        Click buttons to toggle themes on this box.
+    </div>
+    <br>
+
+    <button id="btn-tog-dark">toggleClass("theme-dark")</button>
+    <button id="btn-tog-blue">toggleClass("theme-blue")</button>
+    <button id="btn-tog-highlight">toggleClass("highlight")</button>
+    <button id="btn-tog-bold">toggleClass("bold")</button>
+    <button class="btn-red" id="btn-tog-reset">Remove all</button>
+
+    <div class="output" id="out-toggle"></div>
+</div>
+
+<!-- hasClass() -->
+<div class="section">
+    <h2>5. hasClass() - Check if Class Exists</h2>
+
+    <p id="has-target" class="bold highlight" style="padding:10px; border:1px solid #ccc;">
+        This paragraph has classes: bold, highlight
+    </p>
+
+    <button id="btn-has-bold">hasClass("bold")?</button>
+    <button id="btn-has-italic">hasClass("italic")?</button>
+    <button id="btn-has-highlight">hasClass("highlight")?</button>
+    <button id="btn-add-italic-has">Add "italic" class</button>
+    <button class="btn-red" id="btn-rm-italic-has">Remove "italic" class</button>
+
+    <div class="output" id="out-has"></div>
+</div>
+
+<footer>jQuery Lab - Style Manipulation</footer>
+
+<script>
+$(document).ready(function() {
+
+    // css()
+    $("#btn-get-color").click(function() {
+        var color = $("#css-target").css("color");
+        $("#out-css").text("css('color') = " + color);
+    });
+
+    $("#btn-set-color").click(function() {
+        $("#css-target").css("color", "red");
+        $("#out-css").text("css('color', 'red') applied");
+    });
+
+    $("#btn-set-bg").click(function() {
+        $("#css-target").css("background-color", "yellow");
+        $("#out-css").text("css('background-color', 'yellow') applied");
+    });
+
+    $("#btn-set-multi").click(function() {
+        $("#css-target").css({
+            "color": "white",
+            "background-color": "#2c3e50",
+            "padding": "15px",
+            "border-radius": "6px"
+        });
+        $("#out-css").text("css({}) - multiple properties set at once");
+    });
+
+    $("#btn-set-size").click(function() {
+        $("#css-target").css("font-size", "20px");
+        $("#out-css").text("css('font-size', '20px') applied");
+    });
+
+    $("#btn-css-reset").click(function() {
+        $("#css-target").removeAttr("style").attr("style", "padding:10px; border:1px solid #ccc;");
+        $("#out-css").text("Reset done");
+    });
+
+    // addClass()
+    $("#btn-add-bold").click(function() {
+        $("#add-target").addClass("bold");
+        $("#out-add").text("addClass('bold') - classes now: " + $("#add-target").attr("class"));
+    });
+
+    $("#btn-add-italic").click(function() {
+        $("#add-target").addClass("italic");
+        $("#out-add").text("addClass('italic') - classes now: " + $("#add-target").attr("class"));
+    });
+
+    $("#btn-add-big").click(function() {
+        $("#add-target").addClass("big");
+        $("#out-add").text("addClass('big') - classes now: " + $("#add-target").attr("class"));
+    });
+
+    $("#btn-add-red").click(function() {
+        $("#add-target").addClass("red-text");
+        $("#out-add").text("addClass('red-text') - classes now: " + $("#add-target").attr("class"));
+    });
+
+    $("#btn-add-greenbg").click(function() {
+        $("#add-target").addClass("green-bg");
+        $("#out-add").text("addClass('green-bg') applied");
+    });
+
+    $("#btn-add-multi").click(function() {
+        $("#add-target").addClass("bold italic big");
+        $("#out-add").text("addClass('bold italic big') - multiple at once");
+    });
+
+    $("#btn-add-reset").click(function() {
+        $("#add-target").removeClass();
+        $("#out-add").text("All classes removed");
+    });
+
+    // removeClass()
+    $("#btn-rm-bold").click(function() {
+        $("#rm-target").removeClass("bold");
+        $("#out-rm").text("removeClass('bold') - classes now: " + $("#rm-target").attr("class"));
+    });
+
+    $("#btn-rm-italic").click(function() {
+        $("#rm-target").removeClass("italic");
+        $("#out-rm").text("removeClass('italic') - classes now: " + $("#rm-target").attr("class"));
+    });
+
+    $("#btn-rm-big").click(function() {
+        $("#rm-target").removeClass("big");
+        $("#out-rm").text("removeClass('big') - classes now: " + $("#rm-target").attr("class"));
+    });
+
+    $("#btn-rm-all").click(function() {
+        $("#rm-target").removeClass();
+        $("#out-rm").text("removeClass() with no args - ALL classes removed");
+    });
+
+    $("#btn-rm-restore").click(function() {
+        $("#rm-target").addClass("bold italic big red-text");
+        $("#out-rm").text("All classes restored");
+    });
+
+    // toggleClass()
+    $("#btn-tog-dark").click(function() {
+        $("#toggle-target").toggleClass("theme-dark");
+        $("#out-toggle").text("toggleClass('theme-dark') - has it: " + $("#toggle-target").hasClass("theme-dark"));
+    });
+
+    $("#btn-tog-blue").click(function() {
+        $("#toggle-target").toggleClass("theme-blue");
+        $("#out-toggle").text("toggleClass('theme-blue') - has it: " + $("#toggle-target").hasClass("theme-blue"));
+    });
+
+    $("#btn-tog-highlight").click(function() {
+        $("#toggle-target").toggleClass("highlight");
+        $("#out-toggle").text("toggleClass('highlight') - has it: " + $("#toggle-target").hasClass("highlight"));
+    });
+
+    $("#btn-tog-bold").click(function() {
+        $("#toggle-target").toggleClass("bold");
+        $("#out-toggle").text("toggleClass('bold') - has it: " + $("#toggle-target").hasClass("bold"));
+    });
+
+    $("#btn-tog-reset").click(function() {
+        $("#toggle-target").removeClass("theme-dark theme-blue highlight bold");
+        $("#out-toggle").text("All toggled classes removed");
+    });
+
+    // hasClass()
+    $("#btn-has-bold").click(function() {
+        var result = $("#has-target").hasClass("bold");
+        $("#out-has").text("hasClass('bold') = " + result);
+    });
+
+    $("#btn-has-italic").click(function() {
+        var result = $("#has-target").hasClass("italic");
+        $("#out-has").text("hasClass('italic') = " + result);
+    });
+
+    $("#btn-has-highlight").click(function() {
+        var result = $("#has-target").hasClass("highlight");
+        $("#out-has").text("hasClass('highlight') = " + result);
+    });
+
+    $("#btn-add-italic-has").click(function() {
+        $("#has-target").addClass("italic");
+        $("#out-has").text("italic added. hasClass('italic') = " + $("#has-target").hasClass("italic"));
+    });
+
+    $("#btn-rm-italic-has").click(function() {
+        $("#has-target").removeClass("italic");
+        $("#out-has").text("italic removed. hasClass('italic') = " + $("#has-target").hasClass("italic"));
+    });
+
+});
+</script>
+</body>
+</html>

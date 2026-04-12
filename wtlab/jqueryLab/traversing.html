@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Traversing</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .tree-box {
+            border: 2px solid #999;
+            padding: 10px;
+            margin: 5px;
+            background: #fff;
+        }
+        .selected-node { background-color: yellow !important; }
+        .found-node    { background-color: lightgreen !important; }
+        .parent-node   { background-color: lightcoral !important; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="selectors.html">Selectors</a>
+    <a href="attributes.html">Attributes</a>
+    <a href="events.html">Events</a>
+    <a href="style.html">Style</a>
+    <a href="traversing.html">Traversing</a>
+    <a href="effects.html">Effects</a>
+</nav>
+
+<h1>jQuery DOM Traversing</h1>
+
+<!-- DOM Structure for traversal -->
+<div class="section">
+    <h2>DOM Structure Used for Traversal</h2>
+    <div class="tree-box" id="great-grand">
+        div#great-grand (great-grandparent)
+        <div class="tree-box" id="grand-parent">
+            div#grand-parent (grandparent)
+            <div class="tree-box" id="the-parent">
+                div#the-parent (parent)
+                <span class="tree-box" id="the-child" style="display:block;">span#the-child (START HERE)</span>
+                <span class="tree-box sibling-el" id="sibling1" style="display:block;">span.sibling-el #1</span>
+                <span class="tree-box sibling-el" id="sibling2" style="display:block;">span.sibling-el #2</span>
+            </div>
+            <p class="tree-box uncle-el" id="uncle1">p.uncle-el #1</p>
+            <p class="tree-box uncle-el" id="uncle2">p.uncle-el #2</p>
+        </div>
+    </div>
+</div>
+
+<!-- Parent Traversal -->
+<div class="section">
+    <h2>1. Parent Traversal</h2>
+
+    <button id="btn-parent">parent()</button>
+    <button id="btn-parents">parents()</button>
+    <button id="btn-parentsUntil">parentsUntil(#great-grand)</button>
+    <button class="btn-red" id="btn-parent-reset">Reset</button>
+
+    <div class="output" id="out-parent"></div>
+</div>
+
+<!-- Children Traversal -->
+<div class="section">
+    <h2>2. Children Traversal</h2>
+
+    <div id="children-demo" style="border:1px solid #ccc; padding:10px;">
+        <p id="cp1">Direct child p #1</p>
+        <p id="cp2">Direct child p #2</p>
+        <div id="nested-div">
+            <p id="cp3">Nested grandchild p #3</p>
+            <span id="cs1">Nested span</span>
+        </div>
+        <span id="cs2">Direct child span</span>
+    </div>
+    <br>
+    <button id="btn-children">children()</button>
+    <button id="btn-children-p">children("p")</button>
+    <button id="btn-find-p">find("p")</button>
+    <button id="btn-find-all">find("*")</button>
+    <button class="btn-red" id="btn-children-reset">Reset</button>
+
+    <div class="output" id="out-children"></div>
+</div>
+
+<!-- Sibling Traversal -->
+<div class="section">
+    <h2>3. Sibling Traversal</h2>
+
+    <ul class="demo-list" style="padding:0; list-style:none;">
+        <li id="li1" style="padding:5px; border:1px solid #ddd; margin:2px;">li #1</li>
+        <li id="li2" style="padding:5px; border:1px solid #ddd; margin:2px; background:#fff3cd;">li #2 (selected)</li>
+        <li id="li3" style="padding:5px; border:1px solid #ddd; margin:2px;">li #3</li>
+        <li id="li4" style="padding:5px; border:1px solid #ddd; margin:2px;">li #4</li>
+        <li id="li5" style="padding:5px; border:1px solid #ddd; margin:2px;">li #5</li>
+    </ul>
+
+    <button id="btn-siblings">siblings()</button>
+    <button id="btn-next">next()</button>
+    <button id="btn-nextAll">nextAll()</button>
+    <button id="btn-nextUntil">nextUntil(#li5)</button>
+    <button id="btn-prev">prev()</button>
+    <button id="btn-prevAll">prevAll()</button>
+    <button id="btn-prevUntil">prevUntil(#li1)</button>
+    <button class="btn-red" id="btn-sib-reset">Reset</button>
+
+    <div class="output" id="out-sib"></div>
+</div>
+
+<!-- Filtering Methods -->
+<div class="section">
+    <h2>4. Filtering Methods</h2>
+
+    <ul id="filt-list" class="demo-list">
+        <li class="filt-item special">Item 1 (special)</li>
+        <li class="filt-item">Item 2</li>
+        <li class="filt-item special">Item 3 (special)</li>
+        <li class="filt-item">Item 4</li>
+        <li class="filt-item special">Item 5 (special)</li>
+        <li class="filt-item">Item 6</li>
+    </ul>
+
+    <button id="btn-filt-first">first()</button>
+    <button id="btn-filt-last">last()</button>
+    <button id="btn-filt-eq">eq(2)</button>
+    <button id="btn-filt-filter">filter(".special")</button>
+    <button id="btn-filt-not">not(".special")</button>
+    <button class="btn-red" id="btn-filt-reset">Reset</button>
+
+    <div class="output" id="out-filt"></div>
+</div>
+
+<footer>jQuery Lab - Traversing</footer>
+
+<script>
+$(document).ready(function() {
+
+    // Parent Traversal
+    function resetTree() {
+        $(".tree-box").removeClass("selected-node found-node parent-node");
+    }
+
+    $("#btn-parent").click(function() {
+        resetTree();
+        $("#the-child").addClass("selected-node");
+        $("#the-child").parent().addClass("parent-node");
+        var id = $("#the-child").parent().attr("id");
+        $("#out-parent").text("parent() of #the-child = #" + id);
+    });
+
+    $("#btn-parents").click(function() {
+        resetTree();
+        $("#the-child").addClass("selected-node");
+        $("#the-child").parents().each(function() {
+            if($(this).hasClass("tree-box")) $(this).addClass("parent-node");
+        });
+        var ids = [];
+        $("#the-child").parents(".tree-box").each(function() { ids.push($(this).attr("id")); });
+        $("#out-parent").text("parents() = [" + ids.join(", ") + "]");
+    });
+
+    $("#btn-parentsUntil").click(function() {
+        resetTree();
+        $("#the-child").addClass("selected-node");
+        $("#the-child").parentsUntil("#great-grand").each(function() {
+            $(this).addClass("parent-node");
+        });
+        var ids = [];
+        $("#the-child").parentsUntil("#great-grand").each(function() { ids.push(this.id||this.tagName); });
+        $("#out-parent").text("parentsUntil(#great-grand) = [" + ids.join(", ") + "]");
+    });
+
+    $("#btn-parent-reset").click(function() {
+        resetTree();
+        $("#out-parent").text("Reset done");
+    });
+
+    // Children Traversal
+    function resetChildren() {
+        $("#children-demo *").css({ "background-color": "", "border": "" });
+    }
+
+    $("#btn-children").click(function() {
+        resetChildren();
+        var $c = $("#children-demo").children();
+        $c.css("background-color", "lightblue");
+        $("#out-children").text("children() - direct children only: " + $c.length + " found");
+    });
+
+    $("#btn-children-p").click(function() {
+        resetChildren();
+        var $c = $("#children-demo").children("p");
+        $c.css("background-color", "lightgreen");
+        $("#out-children").text("children('p') - direct p children: " + $c.length + " found");
+    });
+
+    $("#btn-find-p").click(function() {
+        resetChildren();
+        var $f = $("#children-demo").find("p");
+        $f.css("background-color", "yellow");
+        $("#out-children").text("find('p') - all p descendants (incl. nested): " + $f.length + " found");
+    });
+
+    $("#btn-find-all").click(function() {
+        resetChildren();
+        var $f = $("#children-demo").find("*");
+        $f.css("border", "1px solid red");
+        $("#out-children").text("find('*') - all descendants: " + $f.length + " found");
+    });
+
+    $("#btn-children-reset").click(function() {
+        resetChildren();
+        $("#out-children").text("Reset done");
+    });
+
+    // Sibling Traversal
+    var $start = $("#li2");
+
+    function resetSib() {
+        $("li").css({ "background-color": "", "color": "", "font-weight": "" });
+        $start.css("background-color", "#fff3cd");
+    }
+
+    $("#btn-siblings").click(function() {
+        resetSib();
+        $start.siblings().css("background-color", "lightblue");
+        $("#out-sib").text("siblings() - all siblings except #li2: " + $start.siblings().length);
+    });
+
+    $("#btn-next").click(function() {
+        resetSib();
+        $start.next().css("background-color", "lightgreen");
+        $("#out-sib").text("next() = " + $start.next().attr("id"));
+    });
+
+    $("#btn-nextAll").click(function() {
+        resetSib();
+        $start.nextAll().css("background-color", "lightgreen");
+        var ids = $start.nextAll().map(function(){ return this.id; }).get().join(", ");
+        $("#out-sib").text("nextAll() = [" + ids + "]");
+    });
+
+    $("#btn-nextUntil").click(function() {
+        resetSib();
+        $start.nextUntil("#li5").css("background-color", "lightyellow");
+        var ids = $start.nextUntil("#li5").map(function(){ return this.id; }).get().join(", ");
+        $("#out-sib").text("nextUntil(#li5) = [" + ids + "]");
+    });
+
+    $("#btn-prev").click(function() {
+        resetSib();
+        $start.prev().css("background-color", "lightcoral");
+        $("#out-sib").text("prev() = " + $start.prev().attr("id"));
+    });
+
+    $("#btn-prevAll").click(function() {
+        resetSib();
+        $start.prevAll().css("background-color", "lightcoral");
+        var ids = $start.prevAll().map(function(){ return this.id; }).get().join(", ");
+        $("#out-sib").text("prevAll() = [" + ids + "]");
+    });
+
+    $("#btn-prevUntil").click(function() {
+        resetSib();
+        $start.prevUntil("#li1").css("background-color", "lightsalmon");
+        var ids = $start.prevUntil("#li1").map(function(){ return this.id; }).get().join(", ");
+        $("#out-sib").text("prevUntil(#li1) = [" + ids + "]");
+    });
+
+    $("#btn-sib-reset").click(function() {
+        resetSib();
+        $("#out-sib").text("Reset done");
+    });
+
+    // Filtering Methods
+    function resetFilt() {
+        $(".filt-item").css({ "background-color": "", "color": "" });
+    }
+
+    $("#btn-filt-first").click(function() {
+        resetFilt();
+        $(".filt-item").first().css("background-color", "yellow");
+        $("#out-filt").text("first() - " + $(".filt-item").first().text());
+    });
+
+    $("#btn-filt-last").click(function() {
+        resetFilt();
+        $(".filt-item").last().css("background-color", "yellow");
+        $("#out-filt").text("last() - " + $(".filt-item").last().text());
+    });
+
+    $("#btn-filt-eq").click(function() {
+        resetFilt();
+        $(".filt-item").eq(2).css("background-color", "orange");
+        $("#out-filt").text("eq(2) - " + $(".filt-item").eq(2).text() + " (0-indexed)");
+    });
+
+    $("#btn-filt-filter").click(function() {
+        resetFilt();
+        $(".filt-item").filter(".special").css("background-color", "lightblue");
+        $("#out-filt").text("filter('.special') - " + $(".filt-item").filter(".special").length + " matched");
+    });
+
+    $("#btn-filt-not").click(function() {
+        resetFilt();
+        $(".filt-item").not(".special").css("background-color", "lightgreen");
+        $("#out-filt").text("not('.special') - " + $(".filt-item").not(".special").length + " matched");
+    });
+
+    $("#btn-filt-reset").click(function() {
+        resetFilt();
+        $("#out-filt").text("Reset done");
+    });
+
+});
+</script>
+</body>
+</html>
